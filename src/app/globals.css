@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
+.delay-1s {
+  animation-delay: 0s;
+}
+
+/* Dark scrollbar for admin pages */
+.admin * {
+  scrollbar-width: thin;
+  scrollbar-color: #4A5568 #1A202C;
+}
+
+.admin *::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin *::-webkit-scrollbar-track {
+  background: #1A202C;
+  border-radius: 8px;
+}
+
+.admin *::-webkit-scrollbar-thumb {
+  background-color: #4A5568;
+  border-radius: 8px;
+  border: 2px solid #1A202C;
+}
+
+.admin *::-webkit-scrollbar-thumb:hover {
+  background-color: #718096;
+  cursor: pointer;
+}
+
+.custom-btn2{
+  /* box-shadow: inset 0px -2px 4px rgb(163, 108, 4); */
+  border-radius: 30px;
+  padding: 6px 10px;
+}
+
+@media (max-width:400px){
+  .custom-btn2{
+    /* box-shadow: inset 0px -2px 4px rgb(163, 108, 4); */
+    border-radius: 30px;
+    padding: 6px 15px ;
+    gap: 10px;
+  }
+}
+
+.custom-btn3{
+  /* box-shadow: inset 0px 3px 4px rgba(255, 255, 255, 0.3); */
+  border-radius: 20px;
+  padding: 6px 14px;
+}
