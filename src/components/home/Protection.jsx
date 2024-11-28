@@ -55,7 +55,7 @@ const Protection = () => {
           display="flex"
           alignItems="center"
         >
-          <Text pb={0}>Features</Text> <FiChevronRight />
+          <Text pb={0}>Features</Text> 
         </Button>
       </Box>
 

@@ -23,8 +23,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-
-
 import {
   FaMapMarkerAlt,
   FaRegEnvelope,
@@ -46,7 +44,6 @@ import { color } from "framer-motion";
 const ContactForm = () => {
   const toast = useToast();
 
-
   useEffect(() => {
     // Using window object in useEffect ensures it runs only on the client side
     const currentUrl = window.location.href;
@@ -56,13 +53,13 @@ const ContactForm = () => {
     // Set initial form values from search params
     setFormData((prevData) => ({
       ...prevData,
-      email: params.get("email") || "",
+      phone: params.get("phone") || "",
       subject: params.get("subject") || "",
     }));
   }, []);
   const [formData, setFormData] = useState({
     name: "",
-    email:  "",
+    email: "",
     phone: "",
     subject: "",
     message: "",
@@ -97,7 +94,7 @@ const ContactForm = () => {
     });
 
     // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.message) {
       toast.update(toastId, {
         title: "Error",
         description: "Please fill in all required fields.",
@@ -108,7 +105,8 @@ const ContactForm = () => {
       return;
     }
 
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    // Optional email validation (only if the email field is filled)
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
       toast.update(toastId, {
         title: "Invalid Email",
         description: "Please enter a valid email address.",
@@ -225,11 +223,11 @@ const ContactForm = () => {
               fontWeight="400"
               color="#344054"
             >
-              temporary@gmail.com
+              ppf.camio@gmail.com
             </Text>
           </HStack>
 
-          <HStack mb={6}>
+          {/* <HStack mb={6}>
             <Box p={2} borderRadius="md" bg="#EDECE2">
               <FaPhoneAlt color="#344054" size={20} />
             </Box>
@@ -240,22 +238,43 @@ const ContactForm = () => {
             >
               +91 9212302362 | +91 9315892606
             </Text>
-          </HStack>
+          </HStack> */}
 
           <Flex align="center" pr={10} justifyContent="center" width="100%">
             <HStack spacing={6}>
               <Box bg="#EDECE2" p={2} borderRadius="md">
-                <FaInstagram color="#1B1B1B" size={24} />
+                <a
+                  href="https://www.instagram.com/camioppf?igsh=MW1lemlmZmx0b3E4Yw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram color="#1B1B1B" size={24} />
+                </a>
               </Box>
+
               <Box bg="#EDECE2" p={2} borderRadius="md">
-                <FaFacebook color="#1B1B1B" size={24} />
+                <a
+                  href="https://www.facebook.com/profile.php?id=100094786827356&mibextid=ZbWKwL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook color="#1B1B1B" size={24} />
+                </a>
               </Box>
+
               <Box bg="#EDECE2" p={2} borderRadius="md">
-                <FaYoutube color="#1B1B1B" size={24} />
+                <a
+                  href="https://m.youtube.com/@CamioPPF"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaYoutube color="#1B1B1B" size={24} />
+                </a>
               </Box>
-              <Box bg="#EDECE2" p={2} borderRadius="md">
+
+              {/* <Box bg="#EDECE2" p={2} borderRadius="md">
                 <Image src={whatsApp} alt="WhatsApp" width={24} height={24} />
-              </Box>
+              </Box> */}
             </HStack>
           </Flex>
         </Box>
@@ -304,7 +323,6 @@ const ContactForm = () => {
                   </FormControl>
 
                   <FormControl
-                    isRequired
                     borderBottom="2px"
                     borderColor="#98A2B3"
                     pb={1}
@@ -315,7 +333,7 @@ const ContactForm = () => {
                       <Input
                         type="email"
                         name="email"
-                        placeholder="Email Address"
+                        placeholder="Email Address (Optional)"
                         border="none"
                         focusBorderColor="transparent"
                         width="100%" // Ensure Input takes 100% width
@@ -443,7 +461,7 @@ const ContactForm = () => {
                   </HStack>
                 </FormControl>
 
-                <HStack spacing={2}>
+                {/* <HStack spacing={2}>
                   <Checkbox
                     name="agreeToTerms"
                     isChecked={formData.agreeToTerms}
@@ -453,7 +471,7 @@ const ContactForm = () => {
                   <Text fontSize="sm" color="#98A2B3">
                     I agree to the terms and conditions
                   </Text>
-                </HStack>
+                </HStack> */}
 
                 <Button2>Get In Touch</Button2>
               </Stack>

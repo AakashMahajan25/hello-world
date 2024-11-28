@@ -6,24 +6,7 @@ import Button3 from '../props/Button3';
 
 
 
-const WhyChoose = () => {
-  const features = [
-    {
-      number: 1,
-      title: "Superior durability",
-      description: "Best-in-class durability and flexibility for top-tier protection."
-    },
-    {
-      number: 2,
-      title: "Corrosion-resistant",
-      description: "High resistance to environmental damage and chemical corrosion."
-    },
-    {
-      number: 3,
-      title: "Super Quality",
-      description: "Ideal for luxury and high-end vehicles where aesthetics and protection matter equally."
-    }
-  ];
+const WhyChoose = ({features, Img, text}) => {
 
   return (
     <Container maxW="7xl" py={12}>
@@ -46,11 +29,11 @@ const WhyChoose = () => {
               zIndex={1}
             >
               <Button3 >
-                Why Choose CAMIO TPU
+                {text}
               </Button3>
             </Box>
             <Image
-              src={carimg}
+              src={Img}
               alt="Blue SUV"
               width={900}
               height={700}
@@ -74,7 +57,7 @@ const WhyChoose = () => {
                 </Circle>
                 <Box px={10}>
                   <Heading
-              fontFamily="" size="lg" mb={{ base: 0, lg: 2 }}>
+              fontFamily="" size="lg" mb={{ base: 0, lg: 2 }} width={'full'}>
                     {feature.title}
                   </Heading>
                   <Text color="gray.600" minH={42}>

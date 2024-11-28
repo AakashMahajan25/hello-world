@@ -24,7 +24,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Footer = () => {
-
   const [email, setEmail] = useState("");
   const currentYear = new Date().getFullYear();
   const routes = {
@@ -36,12 +35,15 @@ const Footer = () => {
   };
 
   const handleRedirect = () => {
-    if (email.includes("@") && email.includes(".")) {
-      window.location.href = `/contact?email=${email}`
-    }else{
-      alert("Invalid email address. Please enter a valid email address.")
+    const mobileRegex = /^[0-9]{10}$/; // Matches a 10-digit number
+    if (mobileRegex.test(email)) {
+      window.location.href = `/contact?phone=${email}`;
+    } else {
+      alert(
+        "Invalid phone number. Please enter a valid 10-digit phone number."
+      );
     }
-  }
+  };
 
   return (
     <Box
@@ -80,7 +82,8 @@ const Footer = () => {
             >
               <InputGroup size="30px" bg="transparent">
                 <Input
-                  placeholder="Enter Your Email"
+                  placeholder="Enter Your Mobile No."
+                  type="number"
                   fontSize="30px"
                   fontWeight="400"
                   color="#FFFFEE"
@@ -99,7 +102,9 @@ const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputRightElement>
-                  <button onClick={handleRedirect}><Icon as={BsArrowUpRight}  boxSize={6} color="#FFBB4E" /></button>
+                  <button onClick={handleRedirect}>
+                    <Icon as={BsArrowUpRight} boxSize={6} color="#FFBB4E" />
+                  </button>
                 </InputRightElement>
               </InputGroup>
             </Box>
@@ -115,29 +120,43 @@ const Footer = () => {
                   fontWeight="500"
                   mb={{ base: 2, lg: 4 }}
                 >
-                  Social Media
+                  Social Medias
                 </Text>
-                <HStack spacing={{ base: 4, lg: 6 }}>
-                  {["Instagram", "Twitter", "YouTube"].map((platform) => (
+                <Flex flexWrap={"wrap"} gap={4} spacing={{ base: 4, lg: 6 }}>
+                  {[
+                    {
+                      name: "Instagram",
+                      url: "https://www.instagram.com/camioppf?igsh=MW1lemlmZmx0b3E4Yw==",
+                    },
+                    {
+                      name: "Facebook",
+                      url: "https://www.facebook.com/profile.php?id=100094786827356&mibextid=ZbWKwL ",
+                    },
+                    { name: "YouTube", url: "https://m.youtube.com/@CamioPPF" },
+                    { name: "LinkedIn", url: "https://www.linkedin.com" },
+                  ].map((platform) => (
                     <Link
-                      href="#"
+                      href={platform.url}
                       display="flex"
                       alignItems="center"
-                      aria-label={platform}
-                      key={platform}
+                      aria-label={platform.name}
+                      key={platform.name}
+                      isExternal
                     >
-                      <Text
-                        mr={1}
-                        fontWeight="400"
-                        fontSize="18px"
-                        color="#E0E0E0"
-                      >
-                        {platform}
-                      </Text>
-                      <Icon color="#FFBB4E" as={BsArrowUpRight} />
+                      <Flex alignItems={"center"} gap={1}>
+                        <Text
+                          mr={1}
+                          fontWeight="400"
+                          fontSize="18px"
+                          color="#E0E0E0"
+                        >
+                          {platform.name}
+                        </Text>
+                        <Icon color="#FFBB4E" as={BsArrowUpRight} />
+                      </Flex>
                     </Link>
                   ))}
-                </HStack>
+                </Flex>
               </VStack>
             </Box>
 
@@ -213,7 +232,7 @@ const Footer = () => {
                         Wali Gali, Near Sai Baba Mandir, Alipur, Delhi 110036
                       </Text>
                     </HStack>
-                    <HStack spacing={3}>
+                    {/* <HStack spacing={3}>
                       <Icon
                         as={FiPhone}
                         border="2px"
@@ -231,7 +250,7 @@ const Footer = () => {
                       >
                         9212302362 / 9315892606
                       </Text>
-                    </HStack>
+                    </HStack> */}
                     <HStack spacing={3}>
                       <Icon
                         as={HiOutlineMail}
@@ -248,7 +267,7 @@ const Footer = () => {
                         color="#E0E0E0"
                         width="100%" // Set width to 100%
                       >
-                        contact@company.com
+                        ppf.camio@gmail.com
                       </Text>
                     </HStack>
                   </VStack>
@@ -281,7 +300,7 @@ const Footer = () => {
                   Gali, Near Sai Baba Mandir, Alipur, Delhi 110036
                 </Text>
               </HStack>
-              <HStack spacing={3}>
+              {/* <HStack spacing={3}>
                 <Icon
                   as={FiPhone}
                   border="2px"
@@ -299,7 +318,7 @@ const Footer = () => {
                 >
                   9212302362 / 9315892606
                 </Text>
-              </HStack>
+              </HStack> */}
               <HStack spacing={3}>
                 <Icon
                   as={HiOutlineMail}
@@ -338,17 +357,16 @@ const Footer = () => {
             </Text>
             <Image src={logo} width={150} height="auto" alt="logo" />
             <HStack spacing={4}>
-              {["Terms", "Privacy", "Cookies", "Legal", "Recalls"].map(
-                (policy) => (
-                  <Link
-                    href="#"
-                    fontSize={{ base: "10px", lg: "16px" }}
-                    key={policy}
-                  >
-                    {policy}
-                  </Link>
-                )
-              )}
+              <Text className="text-end px-10 text-gray-400 lg:pb-0 pb-3">
+                Made with ❤️ by{" "}
+                <a
+                  href="https://www.yourwebsite.shop/"
+                  target="_blank"
+                  className="underline"
+                >
+                  YourWebsite.shop
+                </a>
+              </Text>
             </HStack>
           </Stack>
         </Stack>

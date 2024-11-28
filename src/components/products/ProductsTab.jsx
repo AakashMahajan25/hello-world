@@ -14,10 +14,14 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import camio from "@/assets/camio.png";
-import blackgloss from '@/assets/products/blackgloss.jpg';
-import whitegloss from '@/assets/products/whitegloss.jpg';
-import clearmatte from '@/assets/products/clearmatte.jpg';
-import blackmatte from '@/assets/products/blackmatte.jpg';
+import tpuClearGloss from "@/assets/products/newImages/tpuClearGloss.jpg";
+import tpuBlackGloss from "@/assets/products/newImages/tpuBlackGloss.jpg";
+import tpuClearMatte from "@/assets/products/newImages/tpuClearMatte.jpg";
+import tpuBlackMatte from "@/assets/products/newImages/tpuBlackMatte.jpg";
+import tphClearGloss from "@/assets/products/newImages/tphClearGloss.jpg";
+import tphBlackGloss from "@/assets/products/newImages/tphBlackGloss.jpg";
+import tphClearMatte from "@/assets/products/newImages/tphClearMatte.jpg";
+import tphColorGloss from "@/assets/products/newImages/tphColorGloss.jpg";
 
 const productData = [
   {
@@ -25,7 +29,7 @@ const productData = [
     products: [
       {
         title: "CAMIO TPU Clear Gloss",
-        image: whitegloss,
+        image: tpuClearGloss,
         description:
           "CAMIO TPU Clear Gloss offers premium paint protection with an ultra-high gloss finish. Ideal for luxury vehicles, it enhances the natural shine of the paintwork while providing superior protection against scratches, road debris, and environmental elements.",
         details: {
@@ -53,7 +57,7 @@ const productData = [
       },
       {
         title: "CAMIO TPU Black Gloss",
-        image: blackgloss,
+        image: tpuBlackGloss,
         description:
           "CAMIO TPU Black Gloss provides a deep, glossy black finish that gives your vehicle a bold, modern look while ensuring the highest level of paint protection. It delivers superior durability and a sleek aesthetic, making it ideal for vehicles with dark paintwork.",
         details: {
@@ -81,7 +85,7 @@ const productData = [
       },
       {
         title: "CAMIO TPU Clear Matte",
-        image: clearmatte,
+        image: tpuClearMatte,
         description:
           "CAMIO TPU Clear Matte provides paint protection with a modern, matte finish. Designed for a unique and stealthy appearance, it offers the same top-tier protection as the glossy version while giving vehicles a distinct, low-reflective finish.",
         details: {
@@ -109,7 +113,7 @@ const productData = [
       },
       {
         title: "CAMIO TPU Black Matte",
-        image: blackmatte ,
+        image: tpuBlackMatte,
         description:
           "CAMIO TPU Black Matte gives your vehicle a bold, matte black finish, offering an ultra-modern and stealthy appearance. It provides high-end protection and a unique look, perfect for those who want to stand out.",
         details: {
@@ -142,7 +146,7 @@ const productData = [
     products: [
       {
         title: "CAMIO TPH Clear Gloss",
-        image: whitegloss,
+        image: tphClearGloss,
         description:
           "CAMIO TPH Clear Gloss provides an affordable yet high-quality paint protection solution. With a high-gloss finish, it enhances the vehicle's appearance while offering essential protection from everyday wear and tear.",
         details: {
@@ -170,7 +174,7 @@ const productData = [
       },
       {
         title: "CAMIO TPH Clear Matte",
-        image: blackgloss,
+        image: tphClearMatte,
         description:
           "CAMIO TPH Clear Matte provides a modern matte finish with reliable paint protection. Perfect for those who desire a sleek, low-gloss appearance while keeping their vehicle protected from environmental hazards.",
         details: {
@@ -198,7 +202,7 @@ const productData = [
       },
       {
         title: "CAMIO TPH Black Gloss",
-        image: blackmatte,
+        image: tphBlackGloss,
         description:
           "CAMIO TPH Black Gloss offers a glossy black finish with excellent protection at an affordable price. It provides a modern, polished look while ensuring your vehicle stays shielded from everyday wear and tear, scratches, and environmental factors.",
         details: {
@@ -226,7 +230,7 @@ const productData = [
       },
       {
         title: "CAMIO TPH Color Gloss",
-        image: clearmatte,
+        image: tphColorGloss,
         description:
           "CAMIO TPH Color Gloss is a versatile film offering vibrant color finishes along with excellent paint protection. It’s perfect for personalizing your vehicle while maintaining a glossy, eye-catching look.",
         details: {
@@ -271,7 +275,8 @@ const ProductsTab = () => {
               fontWeight={"semibold"}
               key={index}
               color={"gray.500"}
-              _selected={{ borderBottom: "2px solid", borderColor: "black", bg:"gray.100", color:"black" }} 
+              _selected={{ borderBottom: "2px solid", borderColor: "black", bg:"gray.100", color:"black" }}
+              borderBottom={'2px solid'} 
               
             >
               {tab.series}

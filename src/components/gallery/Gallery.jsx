@@ -10,11 +10,19 @@ import toppicks1 from "../../assets/topPicks1.png";
 import toppicks2 from "../../assets/topPicks2.png";
 import toppicks3 from "../../assets/topPicks3.png";
 import toppicks4 from "../../assets/topPicks4.png";
+import gallery1 from "@/assets/products/newImages/gallery1.jpg"
+import gallery2 from "@/assets/products/newImages/gallery2.jpg"
+import gallery3 from "@/assets/products/newImages/gallery3.jpg"
+import gallery4 from "@/assets/products/newImages/gallery4.jpg"
+import gallery5 from "@/assets/products/newImages/gallery5.jpg"
+import gallery6 from "@/assets/products/newImages/gallery6.jpg"
+import gallery7 from "@/assets/products/newImages/gallery7.jpg"
+
 
 const Gallery = () => {
   // List of images for easy maintenance
-  const imagesLeftColumn = [camio, carimage, toppicks2, toppicks3];
-  const imagesRightColumn = [journey, toppicks1, camio, toppicks4];
+  const imagesLeftColumn = [camio, carimage, toppicks2, toppicks3, gallery5,gallery6,gallery7];
+  const imagesRightColumn = [journey, toppicks1, toppicks4, gallery1, gallery2,gallery3,gallery4];
 
   // State and hooks for modal functionality
   const { isOpen, onOpen, onClose } = useDisclosure();

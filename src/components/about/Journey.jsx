@@ -3,6 +3,7 @@ import { Flex, Box, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import journey from "../../assets/journey.png"; // Corrected the import path
 import Button2 from '../props/Button2';
+import journeyCar from "@/assets/products/newImages/blackmatte.jpg"
 
 const Journey = () => {
   return (
@@ -34,9 +35,9 @@ const Journey = () => {
         </Text>
       </Box>
 
-      <Box width={{ base: "100%", md: "500px" }} height="auto">
+      <Box width={{ base: "100%", md: "500px" }} height="400px" overflow='hidden' borderRadius="2xl">
         <Image
-          src={journey}
+          src={journeyCar}
           alt="Journey"
           width={500}
           height={500}

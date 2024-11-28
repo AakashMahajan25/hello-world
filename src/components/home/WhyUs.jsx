@@ -24,6 +24,16 @@ import img7 from '@/assets/products/IMG-20241023-WA0036.jpg'
 import img8 from '@/assets/products/IMG-20240908-WA0000.jpg'
 import img9 from '@/assets/products/IMG-20240809-WA0004.jpg'
 
+import supProtection from "@/assets/products/newImages/SupProtection.jpg"
+import selfHealing from "@/assets/products/newImages/selfHealing.jpg"
+import nonYellow from "@/assets/products/newImages/nonYellow.webp"
+import longLasting from "@/assets/products/newImages/longLasting.jpg"
+import yearWarr from "@/assets/products/newImages/5YearWarr.jpg"
+import customizable from "@/assets/products/newImages/customizable.jpg"
+import hydrophobic from "@/assets/products/newImages/hydrophobic.jpg"
+import glossFinish from "@/assets/products/newImages/glossFinish.jpeg"
+import noResidue from "@/assets/products/newImages/noResidue.jpg"
+
 // import AnimButton from "../components/props/Button";
 
 import Link from "next/link";
@@ -42,63 +52,63 @@ const WhyUs = () => {
       title: "Superior Protection",
       content:
         "CAMIO PPF offers unmatched protection against road debris, scratches, and environmental elements, ensuring your vehicle stays in top condition.",
-      imageUrl: Whyusimg1,
+      imageUrl: supProtection,
     },
     {
       id: 2,
       title: "Self-Healing Technology",
       content:
         "Minor scratches heal automatically, keeping your car’s surface flawless.",
-      imageUrl: blackgloss,
+      imageUrl: selfHealing,
     },
     {
       id: 3,
       title: "Non-Yellowing Formula",
       content:
         " CAMIO PPF is designed with anti-yellowing technology, ensuring the film remains crystal clear and doesn’t discolor over time.",
-      imageUrl: whitegloss,
+      imageUrl: nonYellow,
     },
     {
       id: 4,
       title: "Long-Lasting Durability",
       content:
         " Engineered for durability, CAMIO PPF maintains its integrity for years, providing reliable protection without cracking or peeling.",
-      imageUrl: clearmatte,
+      imageUrl: longLasting,
     },
     {
       id: 5,
       title: "5-Year Warranty",
       content:
         "CAMIO PPF comes with a 5-year warranty, giving you peace of mind that your vehicle is protected by a product that stands the test of time.",
-      imageUrl: blackmatte,
+      imageUrl: yearWarr,
     },
     {
       id: 6,
       title: "Customizable Coverage",
       content:
         "Available in various finishes and customizable for any vehicle, CAMIO PPF ensures a perfect fit and full protection wherever you need it.",
-      imageUrl: mghectar,
+      imageUrl: customizable,
     },
     {
       id: 7,
       title: "Ultra Hydrophobic",
       content:
         "CAMIO PPF features ultra-hydrophobic properties, allowing water to bead off easily and making the film resistant to stains and contaminants.",
-      imageUrl: img7,
+      imageUrl: hydrophobic,
     },
     {
       id: 8,
       title: "Enhanced Gloss Finish",
       content:
         "The high-gloss finish of CAMIO PPF enhances your vehicle’s appearance, providing a sleek and polished look while protecting the paint underneath.",
-      imageUrl: img8,
+      imageUrl: glossFinish,
     },
     {
       id: 9,
       title: "No Residue",
       content:
         "CAMIO PPF can be removed cleanly without leaving any adhesive residue, ensuring your vehicle’s paintwork remains unblemished even after the film is removed.",
-      imageUrl: img9,
+      imageUrl: noResidue,
     },
   ];
 
@@ -119,7 +129,7 @@ const WhyUs = () => {
         display={"flex"}
         alignItems={"center"}
       >
-        <Text pb={0}>Why choose us</Text> <FiChevronRight />
+        <Text pb={0}>Why choose us</Text> 
       </Button>
 
       {/* Heading and Description Section */}
@@ -165,7 +175,7 @@ const WhyUs = () => {
             owners. Here’s why CAMIO PPF is the ultimate choice:
           </Text>
           <Box px={8} py={4} my={{base:6, lg:0}} className="flex justify-center lg:block" >
-            <Link href={"/about"}>
+            <Link href={"/products"}>
               <Button3>Learn More</Button3>
             </Link>
           </Box>

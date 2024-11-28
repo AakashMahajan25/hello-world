@@ -6,6 +6,7 @@ import Car from '@/components/home/Car'
 import WhyUs from '@/components/home/WhyUs'
 import TopPicks from '@/components/home/TopPicks'
 import Protection from '@/components/home/Protection'
+import Reviews from '@/components/home/Reviews'
 
 
 

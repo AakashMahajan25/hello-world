@@ -10,9 +10,9 @@ const page = () => {
       </div>
 
       <div className='bg-blue-100/10 rounded-lg p-6 flex-1 min-w-[250px]'>
-        <h3 className='text-xl font-semibold text-blue-100'>Retailers</h3>
+        <h3 className='text-xl font-semibold text-blue-100'>Detailers</h3>
         <p className='text-3xl font-bold text-blue-50 mt-2'>48</p>
-        <p className='text-sm text-blue-200/60 mt-1'>Registered retailers</p>
+        <p className='text-sm text-blue-200/60 mt-1'>Registered detailers</p>
       </div>
 
       <div className='bg-blue-100/10 rounded-lg p-6 flex-1 min-w-[250px]'>

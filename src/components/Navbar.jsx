@@ -4,9 +4,10 @@ import logo from "@/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
-import { Button, IconButton } from "@chakra-ui/react";
+import { Button, IconButton, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,9 +49,9 @@ const Navbar = () => {
     <header className="flex items-center bg-transparent w-full z-50 px-5 md:px-10 py-3">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
-        <div className="p-2 flex items-center space-x-3">
+        <div className="p-2 w-40 h-32 flex items-center space-x-3 bg-black rounded-full">
           <Link href={"/"}>
-            <Image src={logo} width={150} alt="logo" />
+            <Image src={logo} width={150} height={150} alt="logo" />
           </Link>
         </div>
 
@@ -74,6 +75,16 @@ const Navbar = () => {
           >
             About Us
           </Link>
+
+          <Menu isLazy>
+            <MenuButton className={getLinkClassName("/warranty")} onMouseEnter={(e) => e.currentTarget.click()}>
+              E-Warranty <ChevronDownIcon />
+            </MenuButton>
+            <MenuList onMouseLeave={(e) => e.currentTarget.parentElement.querySelector('button').click()}>
+              <MenuItem as={Link} href="/warranty/register">Register E-Warranty</MenuItem>
+              <MenuItem as={Link} href="/warranty/status">Check Status</MenuItem>
+            </MenuList>
+          </Menu>
         
           <Link
             className={getLinkClassName("/gallery")}
@@ -164,6 +175,24 @@ const Navbar = () => {
                 href={"/about"}
               >
                 About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={getMobileLinkClassName("/warranty/register")}
+                onClick={toggleMenu}
+                href={"/warranty/register"}
+              >
+                Register Warranty
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={getMobileLinkClassName("/warranty/status")}
+                onClick={toggleMenu}
+                href={"/warranty/status"}
+              >
+                Check Warranty Status
               </Link>
             </li>
             <li>

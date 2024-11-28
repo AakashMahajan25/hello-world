@@ -4,40 +4,40 @@ import Marquee from "react-fast-marquee";
 const Reviews = () => {
   const reviews = [
     {
-      text: "Cyntch has been an amazing investment partner for me. Their investment management services are easy to use.",
-      author: "Yury",
+      text: "The CAMIO TPU Clear Gloss has completely transformed my car’s look. It adds an incredible mirror-like shine that catches everyone’s attention. Plus, it protects the paint perfectly—worth every bit!",
+      author: "Amit P.",
       rating: 5,
     },
     {
-      text: "I never realized how much money I was wasting on unnecessary expenses until I started using Cyntch.",
-      author: "Aryan",
+      text: "I tried the TPH Clear Gloss on my SUV, and it’s exactly what I needed. It’s protective, easy to clean, and has a nice shine. Perfect for everyday use!",
+      author: "Rajesh K.",
       rating: 5,
     },
     {
-      text: "Such a clean, beautiful template and so easy to customise. Would highly recommend.",
-      author: "Arim",
+      text: "I got the CAMIO TPU Black Gloss, and I’m thrilled with the self-healing feature. Minor scratches disappear with a little warmth, and the glossy finish makes the car shine. Highly recommended.",
+      author: "Arjun M.",
       rating: 5,
     },
     {
-      text: "Such a clean, beautiful template and so easy to customise. Would highly recommend.",
-      author: "Arim",
+      text: "I’ve had the CAMIO TPU Clear Gloss on my car for months now, and it’s still as glossy as day one. It’s incredibly durable and has held up even in rough weather conditions. Super satisfied!",
+      author: "Priyanka S.",
       rating: 5,
     },
     {
-      text: "Such a clean, beautiful template and so easy to customise. Would highly recommend.",
-      author: "Arim",
+      text: "The CAMIO TPH Matte was exactly what I was looking for. It has a great matte finish, and the protection is noticeable. I feel like I got a premium product without the premium price tag!",
+      author: "Karan P.",
       rating: 5,
     },
     {
-      text: "I accidentally stumbled upon this while looking for another service, glad I did! yes yes skibidi",
-      author: "Sam",
+      text: "With CAMIO’s TPU series, I don’t worry about scratches or fading. The hydrophobic layer works wonders, especially during the rainy season. My car always looks polished.",
+      author: "Vishal T.",
       rating: 4,
     },
   ];
-
+  
   return (
     <div className="bg-white py-10 mx-2">
-      <h2 className="text-center text-5xl text-gray-600 mb-10  tracking-wide drop-shadow-md">
+      <h2 className="text-center text-5xl text-gray-600 mb-12  tracking-wide drop-shadow-md">
         What Our Customers Are Saying
       </h2>
 
@@ -63,7 +63,7 @@ const Reviews = () => {
                     </svg>
                   ))}
               </div>
-              <p className="text-lg mb-4">{review.text}</p>
+              <p className="text-lg mb-4 h-[224px]">{review.text}</p>
             </div>
             <p className="font-semibold text-gray-500">@{review.author}</p>
           </div>
@@ -90,9 +90,9 @@ const Reviews = () => {
                     </svg>
                   ))}
               </div>
-              <p className="text-lg mb-4">{review.text}</p>
+              <p className="text-lg mb-4 h-[224px]">{review.text}</p>
             </div>
-            <p className="font-semibold text-gray-500">@{review.author}</p>
+            <p className="font-semibold text-gray-500 py-2">@{review.author}</p>
           </div>
         ))}
       </Marquee>

@@ -4,11 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
-import { IoLogoWhatsapp } from "react-icons/io";
 import { Sora } from "next/font/google";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import whatsapp from "@/assets/whatsapp.png"
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -39,24 +36,14 @@ export default function RootLayout({ children }) {
       <head>
         {/* Setting the title and description within <head> */}
         <title>{metadata.title}</title>
+        {/* <link rel="icon" href="/favicon.ico" /> */}
         <meta name="description" content={metadata.description} />
       </head>
       <body className={`${sora.className} antialiased overflow-x-hidden`}>
         <Providers>
-          {/* Render Navbar, WhatsApp icon, and Footer only if not on /admin routes */}
+          {/* Render Navbar and Footer only if not on /admin routes */}
           {!isAdminRoute && <Navbar />}
           {children}
-          {!isAdminRoute && (
-            <a
-              href="https://wa.me/728377971?text=awesome product"
-              target="_blank"
-              aria-label="Message us on WhatsApp about this awesome product"
-            >
-              <div className="bg-white p-2">
-                <Image width={50} height={50} alt="whatsapp" src={whatsapp} className="text-[50px] p-1 fixed bottom-14 right-14 text-green-400"/>
-              </div>
-            </a>
-          )}
           {!isAdminRoute && <Footer />}
         </Providers>
       </body>

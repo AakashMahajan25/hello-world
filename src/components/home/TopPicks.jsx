@@ -20,6 +20,9 @@ import { FiChevronRight } from "react-icons/fi";
 import Button2 from "../props/Button";
 import Link from "next/link";
 // import AnimButton from "../components/props/Button";
+import tpuMatte from "@/assets/products/newImages/tpuMatte.jpg"
+import tphMatte from "@/assets/products/newImages/tphMatte.jpg"
+
 
 const PremiumProtection = () => {
   return (
@@ -39,16 +42,16 @@ const PremiumProtection = () => {
               borderColor={"#E2E2E2"}
               cursor={"default"}
             >
-              <Text pb={{ base: 0, lg: 0 }}>Features that we provide</Text>{" "}
-              <FiChevronRight />
+              <Text pb={{ base: 0, lg: 0 }}>Unmatched Protection & Finish</Text>{" "}
+              
             </Button>
 
             <Heading
               fontFamily=""
               fontSize={{ base: "30px", lg: "45px" }}
               fontWeight={600}
-              mb={{ base: 2, lg: 8 }}
-              mt={{ base: 2 }}
+              mb={{ base: 2, lg: 4 }}
+              mt={{ base: 2, lg:6 }}
               color="#010205"
             >
               Top Picks for Premium Protection
@@ -58,7 +61,7 @@ const PremiumProtection = () => {
               fontSize={{ base: "16px", lg: "18px" }}
               fontWeight={400}
               color="#000000"
-              mb={8}
+              mb={6}
             >
               Explore our best-selling CAMIO PPF products, trusted for their
               unmatched protection and flawless finish.
@@ -92,7 +95,7 @@ const PremiumProtection = () => {
                     color="#111928"
                     pb={2}
                   >
-                    CAMIO TPU CLEAR GLOSS
+                    CAMIO TPU Clear Gloss
                   </Text>
 
                   <Box
@@ -223,9 +226,9 @@ const PremiumProtection = () => {
               overflow="hidden"
               boxShadow="sm"
             >
-              <CardBody p={{ base: "15px", md: "25px", lg: "30px" }} className="flex justify-center items-center">
+              <CardBody p={{ base: "15px", md: "25px", lg: "30px" }} className=" lg:flex hidden justify-center items-center">
                 <Link href={"/products"}>
-                  <Button2>Explore Our Products</Button2>
+                  <Button2>Find the Right PPF for You</Button2>
                 </Link>
               </CardBody>
             </Card>
@@ -269,7 +272,7 @@ const PremiumProtection = () => {
                     pt={4}
                     pb={6}
                   >
-                    Affordable glass finish with 3-year warranty, great
+                    Affordable gloss finish with 3-year warranty, great
                     protection for everyday vehicles.
                   </Text>
                 </VStack>
@@ -291,7 +294,7 @@ const PremiumProtection = () => {
                     color="#111928"
                     pb={2}
                   >
-                    CAMIO TPU Clear Gloss
+                    CAMIO TPH Matte
                   </Text>
                   <Box
                     width="100%"
@@ -315,8 +318,7 @@ const PremiumProtection = () => {
                     pt={4}
                     pb={6}
                   >
-                    High gloss finish with premium, self-healing protection,
-                    ideal for a pristine look.
+                    Subtle, durable protection with a sleek, matte finish.
                   </Text>
                 </VStack>
               </CardBody>
@@ -330,7 +332,7 @@ const PremiumProtection = () => {
         alignItems="center"
       >
         <Link href={"/products"}>
-          <Button2>Explore Our Products</Button2>
+          <Button2>Find the Right PPF for You</Button2>
         </Link>
       </Box>
     </Box>

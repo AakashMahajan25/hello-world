@@ -200,7 +200,7 @@ const Faq = () => {
         >
           Frequently Asked Questions
         </Heading>
-        <Link href={`/contact?subject=Enqui`} >
+        <Link href={`/contact?subject=Enquiry`} >
         <AnimButton
           fontSize="18.98px"
           fontWeight={500}

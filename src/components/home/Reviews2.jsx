@@ -1,111 +1,113 @@
-'use client'
+'use client';
 import React from 'react';
-import { Box, Flex, Text, Avatar, VStack, HStack, Icon, Button } from '@chakra-ui/react';
-import { FaStar } from 'react-icons/fa';
-import { FiChevronRight } from "react-icons/fi";
+import { Box, Text, VStack, HStack, Button } from '@chakra-ui/react';
 
 const Reviews2 = () => {
-  
   const reviews = [
     {
-      text: "Camio PPF transformed our vehicle protection. The high gloss finish delivers a stunning shine, and the self-healing technology keeps it pristine—an invaluable investment.",
-      author: "Charlotte Hanlin",
-      designation: "Co-Founder, Heroes Digital",
-      rating: 4.8,
+      text: "The CAMIO TPU Clear Gloss has completely transformed my car’s look. It adds an incredible mirror-like shine that catches everyone’s attention. Plus, it protects the paint perfectly—worth every bit!",
+      author: "Amit P.",
+      rating: 5,
     },
     {
-      text: "Camio PPF is a game-changer! The glossy finish looks incredible, and the self-healing feature ensures it stays flawless. Highly recommend for any vehicle owner.",
-      author: "Novák Balázs",
-      designation: "Co-Founder, WoCommerce",
-      rating: 4.8,
+      text: "I tried the TPH Clear Gloss on my SUV, and it’s exactly what I needed. It’s protective, easy to clean, and has a nice shine. Perfect for everyday use!",
+      author: "Rajesh K.",
+      rating: 5,
     },
     {
-      text: "With Camio PPF, my car looks stunning every day. The high gloss finish and self-healing properties make it a fantastic investment for any luxury vehicle.",
-      author: "Orosz Boldizsár",
-      designation: "Founder, Okta",
-      rating: 4.8,
+      text: "I got the CAMIO TPU Black Gloss, and I’m thrilled with the self-healing feature. Minor scratches disappear with a little warmth, and the glossy finish makes the car shine. Highly recommended.",
+      author: "Arjun M.",
+      rating: 5,
     },
     {
-      text: "This website exceeded my expectations! The high gloss finish is beautiful, and the self-healing technology keeps my car looking new!",
-      author: "Floyd Miles",
-      designation: "Co-Founder, Slack",
-      rating: 4.8,
+      text: "I’ve had the CAMIO TPU Clear Gloss on my car for months now, and it’s still as glossy as day one. It’s incredibly durable and has held up even in rough weather conditions. Super satisfied!",
+      author: "Priyanka S.",
+      rating: 5,
     },
     {
-      text: "I'm thrilled with Camio PPF! The glossy shine enhances my vehicle's appearance, and the protection it offers is top-notch. It's a must-have for any car enthusiast.",
-      author: "Darrell Steward",
-      designation: "Co-Founder, Heroes Digital",
-      rating: 4.8,
+      text: "The CAMIO TPH Matte was exactly what I was looking for. It has a great matte finish, and the protection is noticeable. I feel like I got a premium product without the premium price tag!",
+      author: "Karan P.",
+      rating: 5,
     },
     {
-      text: "My car looks stunning with its high gloss finish. The self-healing feature is fantastic, making it the perfect choice for everyday protection!",
-      author: "Devon Lane",
-      designation: "Marketing, Google",
-      rating: 4.8,
+      text: "With CAMIO’s TPU series, I don’t worry about scratches or fading. The hydrophobic layer works wonders, especially during the rainy season. My car always looks polished.",
+      author: "Vishal T.",
+      rating: 4,
     },
   ];
 
   return (
-    <Box maxW="1200px" mx={{base:"14px", lg:'auto'}} py={10} px={4} bgGradient="linear(96.56deg, rgba(158, 194, 194, 0.3) 27.8%, rgba(213, 203, 159, 0.3) 53.91%)" borderRadius={'24px'} mt={10}>
-      
-        <Button
-        bg={"white"}
-        marginX={{ base: "auto", lg: 'auto' }}
-        borderStyle={"solid"}
-        borderRadius={"full"}
+    <Box
+      maxW="1200px"
+      mx={{ base: "14px", lg: "auto" }}
+      py={10}
+      px={4}
+      bgGradient="linear(96.56deg, rgba(158, 194, 194, 0.3) 27.8%, rgba(213, 203, 159, 0.3) 53.91%)"
+      borderRadius="24px"
+      mt={10}
+    >
+      <Button
+        bg="white"
+        marginX={{ base: "auto", lg: "auto" }}
+        borderStyle="solid"
+        borderRadius="full"
         fontWeight={500}
-        fontSize={{ base: "12px", md: "16px" }} // Responsive font size
+        fontSize={{ base: "12px", md: "16px" }}
         _hover={{ bg: "white" }}
-        borderWidth={"1px"}
-        borderColor={"#E2E2E2"}
-        display={"flex"}
-        alignItems={"center"}
-        height={'30px'}
+        borderWidth="1px"
+        borderColor="#E2E2E2"
+        display="flex"
+        alignItems="center"
+        height="30px"
         my={8}
         py={5}
       >
-        <Text pb={{base:0, lg:0}}>Testimonial</Text> <FiChevronRight />
+        <Text>Testimonial</Text>
       </Button>
-    
+
       <Text fontSize="3xl" fontWeight="bold" textAlign="center" mb={8}>
         What Our Customers Are Saying About CAMIO PPF
       </Text>
-      <Flex wrap="wrap" justify="center" gap={6}>
+
+      <Box
+        display="grid"
+        gridTemplateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1fr 1fr 1fr" }}
+        gap={6}
+      >
         {reviews.map((review, index) => (
           <Box
             key={index}
-            maxW="320px"
-            bg="white"
-            shadow="lg"
-            borderRadius="lg"
             p={6}
-            textAlign="left"
+            bg="gray.100"
+            borderRadius="lg"
+            shadow="md"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
           >
-            <VStack spacing={4} align="flex-start">
+            <VStack align="start" spacing={4}>
               <HStack>
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Icon
-                    as={FaStar}
-                    key={i}
-                    color={i < Math.floor(review.rating) ? 'yellow.400' : 'gray.300'}
-                  />
-                ))}
-                <Text>{review.rating}</Text>
+                {Array(review.rating)
+                  .fill(0)
+                  .map((_, i) => (
+                    <svg
+                      key={i}
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.908c.969 0 1.371 1.24.588 1.81l-3.973 2.884a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.539 1.118l-3.973-2.884a1 1 0 00-1.176 0l-3.973 2.884c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.364-1.118L.98 9.401c-.784-.57-.38-1.81.588-1.81h4.908a1 1 0 00.95-.69l1.518-4.674z" />
+                    </svg>
+                  ))}
               </HStack>
-              <Text fontWeight={'semibold'} minH={'144px'}>&quot;{review.text}&quot;</Text>
-              <HStack spacing={3}>
-                <Avatar name={review.author} />
-                <VStack spacing={0} align="flex-start">
-                  <Text fontWeight="bold">{review.author}</Text>
-                  <Text fontSize="sm" color="gray.500">
-                    {review.designation}
-                  </Text>
-                </VStack>
-              </HStack>
+              <Text fontSize="lg">{review.text}</Text>
             </VStack>
+            <Text mt={4} fontWeight="bold" color="gray.500">
+              @{review.author}
+            </Text>
           </Box>
         ))}
-      </Flex>
+      </Box>
     </Box>
   );
 };

@@ -26,7 +26,7 @@ const ProductProp = ({
               alt="Luxury SUV with protection film"
               width={560}
               height={446}
-              className="w-full h-auto"
+              className="w-full h-auto rounded-2xl"
             />
           </div>
 
