@@ -36,7 +36,7 @@ function RotatingEarth({ isInteracting }) {
 
   return (
     <mesh ref={earthRef}>
-      <Earth />
+      <Earth onLoad={onLoad} />
       {/* Example of labeled bent lines */}
       <LabeledBentLine start={[-2.5, 0.3, 0]} bend={[-2.7, 0.8, 0]} end={[-3.4, 1, 0]} label="Front Bumper" />
       <LabeledBentLine start={[-2.38, 1, 0.6]} bend={[-2.4, 1.2, 0.6]} end={[-2.8, 1.2, 1.5]} label="Head Light" />
@@ -62,6 +62,7 @@ const LoadingSpinner = () => (
 const Car = () => {
   const [isInteracting, setIsInteracting] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isModelLoaded, setIsModelLoaded] = useState(false);
 
   useEffect(() => {
     // Only check the window size on the client side
@@ -88,7 +89,12 @@ const Car = () => {
             onEnd={() => setIsInteracting(false)}
           />
           <Suspense fallback={<LoadingSpinner />}>
-            <RotatingEarth isInteracting={isInteracting} />
+            {isModelLoaded && (
+              <RotatingEarth
+                isInteracting={isInteracting}
+                onLoad={() => setIsModelLoaded(true)} // Set model as loaded
+              />
+            )}
           </Suspense>
           <Environment preset="sunset" />
         </Canvas>
