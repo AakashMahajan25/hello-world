@@ -84,16 +84,20 @@ const Footer = () => {
                 <Input
                   placeholder="Enter Your Mobile No."
                   type="number"
-                  fontSize="30px"
+                  fontSize={{base:"20px", md:"30px", lg:"30px"}} 
                   fontWeight="400"
                   color="#FFFFEE"
-                  _placeholder={{ color: "white", fontSize: "30px" }}
+                  _placeholder={{
+                    color: "white",
+                    fontSize: { base: "20px", md: "30px", lg: "30px" }, 
+                  }}
+                  
                   borderColor="white"
                   borderWidth={0}
                   borderBottomWidth={1}
                   borderRadius={0}
                   pl={0}
-                  pb={{ base: 4, lg: 6 }}
+                  pb={{ base: 2, lg: 4 }}
                   _focus={{
                     borderColor: "white",
                     boxShadow: "none",
@@ -335,7 +339,7 @@ const Footer = () => {
                   color="#E0E0E0"
                   width="100%" // Set width to 100%
                 >
-                  contact@company.com
+                contact@company.com
                 </Text>
               </HStack>
             </VStack>

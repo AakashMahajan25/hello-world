@@ -179,6 +179,7 @@ const PremiumProtection = () => {
               borderRadius="2xl"
               overflow="hidden"
               boxShadow="sm"
+              mb={{base:"-6", md:"0"}}
             >
               <CardBody p={{ base: "15px", md: "25px", lg: "30px" }}>
                 <VStack align="start" spacing={2}>
