@@ -39,6 +39,7 @@ const Protection = () => {
       minHeight={{ base: "100vh", "2xl": "85vh" }}
       pt={10}
       px={{ base: 5, "2xl": 80 }}
+      pb={8}
     >
       {/* Features Button */}
       <Box display="flex" justifyContent="center" py={0}>

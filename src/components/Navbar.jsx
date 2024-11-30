@@ -49,9 +49,14 @@ const Navbar = () => {
     <header className="flex items-center bg-transparent w-full z-50 px-5 md:px-10 py-3">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
-        <div className="p-2 w-40 h-32 flex items-center space-x-3 bg-black rounded-full">
+        <div
+          className="p-2 flex items-center space-x-3 rounded-3xl"
+          style={{
+            backgroundColor: "black",
+          }}
+        >
           <Link href={"/"}>
-            <Image src={logo} width={150} height={150} alt="logo" />
+            <Image src={logo} width={1000}alt="logo" className="lg:w-[140px] sm:w-[90px] w-[50px]" />
           </Link>
         </div>
 
