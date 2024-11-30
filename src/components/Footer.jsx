@@ -339,7 +339,7 @@ const Footer = () => {
                   color="#E0E0E0"
                   width="100%" // Set width to 100%
                 >
-                contact@company.com
+                ppf.camio@gmail.com
                 </Text>
               </HStack>
             </VStack>
