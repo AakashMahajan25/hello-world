@@ -15,6 +15,7 @@ import topPicks2 from "../../assets/topPicks2.png";
 import topPicks3 from "../../assets/topPicks3.png";
 import topPicks4 from "../../assets/topPicks4.png";
 import topPicks5 from "../../assets/topPicks5.png";
+import topPicksmatte from "../../assets/topPicksMatte.jpg";
 import Image from "next/image";
 import { FiChevronRight } from "react-icons/fi";
 import Button2 from "../props/Button";
@@ -167,7 +168,7 @@ const PremiumProtection = () => {
                     pb={6}
                   >
                     Glossy black finish with top protection, ideal for standout
-                    sports cars
+                    sports cars.
                   </Text>
                 </VStack>
               </CardBody>
@@ -304,7 +305,7 @@ const PremiumProtection = () => {
                     overflow="hidden"
                   >
                     <Image
-                      src={topPicks5}
+                      src={topPicksmatte}
                       alt="CAMIO TPU Clear Gloss"
                       width="100%"
                       height="auto"

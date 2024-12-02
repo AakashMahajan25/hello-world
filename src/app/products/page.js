@@ -8,42 +8,13 @@ import React from "react";
 import tpuSeries1 from "@/assets/tpuSeries1.png";
 import tpuSeries3 from "@/assets/tpuSeries3.png";
 import tpuSeries4 from "@/assets/tpuSeries4.png";
+import tpuClearCar from "@/assets/tpuClearCar.jpg";
+
 import ComparisonTable from "@/components/products/ComparsionTable";
 import carimg from "@/assets/carimage.png";
 import whyChooseTph from "@/assets/products/newImages/whyChooseTph.jpg";
 
 const Page = () => {
-  const products = [
-    {
-      name: "Camio TPU Clear Gloss",
-      image: tpuSeries1,
-      id: 1,
-      details:
-        "This ultra-gloss film provides enhanced shine, self-healing, and water repellency. With a non-yellowing formula and 5-year warranty, it's ideal for luxury vehicles and easy to install on large surfaces.",
-    },
-    {
-      name: "CAMIO TPU Black Gloss",
-      image: tpuSeries1,
-      id: 2,
-      details:
-        "This high-gloss black film offers a bold finish, self-healing, and hydrophobic properties. With stain resistance, a non-yellowing formula, and a 5-year warranty, it’s ideal for dark or luxury vehicles and easy to apply to large areas.",
-    },
-    {
-      name: "CAMIO TPU Clear Matte",
-      image: tpuSeries3,
-      id: 3,
-      details:
-        "This matte film provides a stealthy, non-reflective look with self-healing, hydrophobic, and non-yellowing properties. It offers long-lasting durability with a 5-year warranty, ideal for a modern, low-gloss aesthetic and large coverage areas.",
-    },
-    {
-      name: "CAMIO TPU Black Matte",
-      image: tpuSeries4,
-      id: 4,
-      details:
-        "This matte black film offers a sophisticated, non-reflective finish with self-healing and hydrophobic properties. It provides durable, non-yellowing protection with a 5-year warranty, ideal for a bold, modern appearance on high-end dark vehicles.",
-    },
-  ];
-
   const featuresTPU = [
     {
       number: 1,
@@ -85,7 +56,6 @@ const Page = () => {
         "Ideal for daily drivers or budget-conscious customers looking for reliable paint protection.",
     },
   ];
-
   return (
     <div>
       <Head>
@@ -115,7 +85,7 @@ const Page = () => {
         <link rel="canonical" href="https://www.camioppf.com/products" />
       </Head>
       <Hero />
-      <WhyCamio products={products} />
+      <WhyCamio />
       <WhyChoose features={featuresTPU} text={"Why Choose CAMIO TPU"} Img={carimg} />
       <WhyChoose features={featuresTPH} Img={whyChooseTph} text={"Why Choose CAMIO TPH"} />
       <ProductsTab />

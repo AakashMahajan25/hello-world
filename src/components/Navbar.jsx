@@ -51,9 +51,6 @@ const Navbar = () => {
         {/* Logo */}
         <div
           className="p-2 flex items-center space-x-3 rounded-3xl"
-          style={{
-            backgroundColor: "black",
-          }}
         >
           <Link href={"/"}>
             <Image src={logo} width={1000}alt="logo" className="lg:w-[140px] sm:w-[90px] w-[50px]" />
