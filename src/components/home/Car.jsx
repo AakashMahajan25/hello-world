@@ -2,7 +2,10 @@
 import React, { useRef, useState, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment, Html, Line } from "@react-three/drei";
-import Earth from "../../../public/Earth"; // Assuming Earth is a GLTF/GLB model
+import Earth from "../../../public/Earth";
+import Model from '@/assets/3dmodel.png'
+import Image from "next/image";
+
 
 function LabeledBentLine({ start, bend, end, label }) {
   return (
@@ -76,7 +79,7 @@ const Car = () => {
 
   return (
     <div className="lg:h-[100vh] h-[70vh] w-[100vw] bg-black flex items-center">
-      <div className={`w-full h-full m-auto ${isMobile ? "p-4" : "w-[80vw]"}`}>
+      <div className={` hidden lg:block w-full h-full m-auto ${isMobile ? "p-4" : "w-[80vw]"}`}>
         <Canvas camera={{ position: isMobile ? [4.5, 3.5, 4.5] : [2.9, 2, 2.9] }}>
           <ambientLight />
           <OrbitControls
@@ -93,6 +96,7 @@ const Car = () => {
           <Environment preset="sunset" />
         </Canvas>
       </div>
+      <Image src={Model} height={1000} width={1000} className="lg:hidden" />
     </div>
   );
 };
