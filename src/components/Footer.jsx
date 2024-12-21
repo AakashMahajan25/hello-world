@@ -84,14 +84,13 @@ const Footer = () => {
                 <Input
                   placeholder="Enter Your Mobile No."
                   type="number"
-                  fontSize={{base:"20px", md:"30px", lg:"30px"}} 
+                  fontSize={{ base: "20px", md: "30px", lg: "30px" }}
                   fontWeight="400"
                   color="#FFFFEE"
                   _placeholder={{
                     color: "white",
-                    fontSize: { base: "20px", md: "30px", lg: "30px" }, 
+                    fontSize: { base: "20px", md: "30px", lg: "30px" },
                   }}
-                  
                   borderColor="white"
                   borderWidth={0}
                   borderBottomWidth={1}
@@ -339,7 +338,7 @@ const Footer = () => {
                   color="#E0E0E0"
                   width="100%" // Set width to 100%
                 >
-                ppf.camio@gmail.com
+                  ppf.camio@gmail.com
                 </Text>
               </HStack>
             </VStack>
@@ -362,11 +361,24 @@ const Footer = () => {
             <Image src={logo} width={150} height="auto" alt="logo" />
             <HStack spacing={4}>
               <Text className="text-end px-10 text-gray-400 lg:pb-0 pb-3">
-                Made with ❤️ by{" "}
+                Crafted with{" "}
+                <span className="inline-block text-[#FFBB4E] align-middle">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="20px"
+                    viewBox="0 0 24 24"
+                    width="20px"
+                    fill="#FFBB4E"
+                  >
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </span>{" "}
+                by{" "}
                 <a
                   href="https://www.yourwebsite.shop/"
                   target="_blank"
-                  className="underline"
+                  className=""
                 >
                   YourWebsite.shop
                 </a>
