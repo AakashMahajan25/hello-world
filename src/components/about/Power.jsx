@@ -12,7 +12,6 @@ const Power = () => {
         justify="center"
         direction={{ base: "column", lg: "row" }}
         px={{ base: "20px", md: "150px" }} // Responsive padding
-        py="50px"
         gap={{ base: "30px", md: "50px" }} // Responsive gap
       >
         <Box
@@ -61,7 +60,7 @@ const Power = () => {
         align="center"
         gap={{base:10, lg:20}}
         px={{ base: "20px", md: "150px" }}
-        py={{ base: "20px", md: "50px" }} // Responsive padding
+        py={{ base: "20px", md: "50px", lg:'100px' }} // Responsive padding
         flexDirection={{ base: "column", lg: "row" }} // Stack on small screens
       >
         <Box position="relative" textAlign="center" mb={{ base: 4, md: 0 }}>

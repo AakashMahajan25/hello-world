@@ -217,20 +217,20 @@ const Advantage = () => {
     },
   ];
   return (
-    <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }} >
+    <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }} py={{ lg:'100px'}} >
       <Heading
               fontFamily=""
         as={"h3"}
         mx={"auto"}
         width={{ base: "100%", lg: "45%" }}
         textAlign={"center"}
-        py={4}
+        pb={{base:4}}
       >
         Discover the CAMIO Advantage: Premium Protection for Your Vehicle
       </Heading>
       <Box p={4} px={{ base: 4, lg: 36 }}>
         {advantages.map((adv, i) => (
-          <Box key={i} py={4}>
+          <Box key={i} py={8}>
             <Heading
               fontFamily="" as={"h4"} fontSize={"lg"}>
               {adv.title}

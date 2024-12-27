@@ -12,7 +12,8 @@ const Hero = () => {
       justify="center"
       direction={{ base: "column", lg: "row" }}
       px={{ base: "20px", md: "150px" }} // Responsive padding
-      py="50px"
+      py={{base:'50px', lg:0}}
+      pt={{lg:'80px'}}
       gap={{ base: "30px", md: "50px" }} // Responsive gap
     >
       <Box

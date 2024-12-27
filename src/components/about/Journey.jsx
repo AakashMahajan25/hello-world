@@ -12,7 +12,7 @@ const Journey = () => {
       justify="center"
       direction={{ base: "column", lg: "row" }} // Responsive direction
       px={{ base: "20px", md: "150px" }} 
-      py="60px"
+      py={{base:'60px' , lg:'120px'}}
       gap={{ base: "30px", md: "50px" }} // Responsive gap
     >
       <Box textAlign="left" maxW={{ base: "100%", md: "600px" }}>

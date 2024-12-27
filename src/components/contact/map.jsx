@@ -8,6 +8,7 @@ const Map = () => {
       mb={10}
       gap="0px"
       p={{base:4, lg:0}}
+      pb={{lg:'100px'}}
     >
       <Box 
         w="1140px"

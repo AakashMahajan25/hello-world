@@ -36,11 +36,11 @@ const valuesData = [
 
 const Values = () => {
   return (
-    <Flex direction="column" align="center" p={8}>
+    <Flex direction="column" align="center" px={8}>
       <Heading
         fontFamily=""
         pb={{ base: 8, lg: 0 }}
-        py={{ base: 0, lg: 16 }}
+        py={{ base: 0, lg: 0 }}
         fontSize={{ base: "3xl", lg: "5xl" }}
         fontWeight="700"
         lineHeight="37px"

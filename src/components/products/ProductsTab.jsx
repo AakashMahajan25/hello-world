@@ -262,7 +262,7 @@ const productData = [
 
 const ProductsTab = () => {
   return (
-    <div className="lg:px-24 py-20">
+    <div className="lg:px-24 py-20 lg:py-[120px]">
       <Tabs maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }}>
         <TabList
           justifyContent="center"

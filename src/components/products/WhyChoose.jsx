@@ -6,10 +6,10 @@ import Button3 from '../props/Button3';
 
 
 
-const WhyChoose = ({features, Img, text}) => {
+const WhyChoose = ({ features, Img, text }) => {
 
   return (
-    <Container maxW="7xl" py={12} >
+    <Container maxW="7xl"  pt={{lg:'120px'}} >
       <Box position="relative">
         <Flex
           direction={{ base: 'column', md: 'row' }}
@@ -57,7 +57,7 @@ const WhyChoose = ({features, Img, text}) => {
                 </Circle>
                 <Box px={10}>
                   <Heading
-              fontFamily="" size="lg" mb={{ base: 0, lg: 2 }} width={'full'}>
+                    fontFamily="" size="lg" mb={{ base: 0, lg: 2 }} width={'full'}>
                     {feature.title}
                   </Heading>
                   <Text color="gray.600" minH={42}>

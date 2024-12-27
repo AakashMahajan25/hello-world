@@ -35,7 +35,7 @@ const Gallery = () => {
   };
 
   return (
-    <Box w="full" px={{ base: 4, md: 16 }} py={8}>
+    <Box w="full" px={{ base: 4, md: 16 }} py={8} pb={{lg:'100px'}}>
       {/* Heading */}
       <Heading
         fontFamily=""
