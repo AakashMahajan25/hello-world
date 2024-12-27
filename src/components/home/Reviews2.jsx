@@ -44,7 +44,7 @@ const Reviews2 = () => {
       px={4}
       bgGradient="linear(96.56deg, rgba(158, 194, 194, 0.3) 27.8%, rgba(213, 203, 159, 0.3) 53.91%)"
       borderRadius="24px"
-      mt={10}
+      mt={{base:10, lg:'120px'}}
     >
       <Button
         bg="white"
@@ -78,7 +78,7 @@ const Reviews2 = () => {
           <Box
             key={index}
             p={6}
-            bg="gray.100"
+            bg="white"
             borderRadius="lg"
             shadow="md"
             display="flex"

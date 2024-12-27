@@ -27,7 +27,7 @@ import tphMatte from "@/assets/products/newImages/tphMatte.jpg"
 
 const PremiumProtection = () => {
   return (
-    <Box py={16} pt={{ base: 20, lg: 40 }}>
+    <Box py={16} pt={{ base: 20, lg: '140px' }} pb={{lg:0}}>
       <Container maxW="container.xl">
         <VStack spacing={{ base: 2, lg: 8 }} align="stretch">
           <Box textAlign={"center"}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Heading, Text, Button,  Stack } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Button, Stack } from '@chakra-ui/react';
 import { FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 import heroimg from '../../assets/camio.png'
@@ -14,28 +14,29 @@ const Hero = () => {
       direction={{ base: 'column-reverse', md: 'row' }}
       align="center"
       justify="center"
-      p={{ base: 4, md: 8 }}
+      p={{ base: 4, md: 8, lg:0 }}
+      pt={{lg:'50px'}}
       bg="white"
       rounded="xl"
-     width={'full'}
-     px={{lg:36}}
- 
-      maxW={{'2xl':"1500px"}} // Max width for large displays
-      mx={{'2xl':'auto'}}
-     
+      width={'full'}
+      px={{ lg: 36 }}
+
+      maxW={{ '2xl': "1500px" }} // Max width for large displays
+      mx={{ '2xl': 'auto' }}
+
     >
       <Stack
         spacing={6}
         maxW={{ base: '100%', md: '50%' }}
         align={{ base: 'center', md: 'flex-start' }}
         textAlign={{ base: 'center', md: 'left' }}
-        p={{base:4}}
-        
+        p={{ base: 4 }}
+
       >
         <Heading
-              fontFamily=""
+          fontFamily=""
           as="h1"
-          fontSize={{ base: '3xl', md: '3xl', lg:'44px', '2xl':'5xl' }}
+          fontSize={{ base: '3xl', md: '3xl', lg: '44px', '2xl': '5xl' }}
           fontWeight="bold"
         >
           Explore CAMIO PPF:
@@ -54,13 +55,13 @@ const Hero = () => {
         >
           “Unparalleled Protection with CAMIO TPU and TPH Series”
         </Text> */}
-        <Text fontSize={{ base: 'md', md: 'md', lg:'lg' }} color="gray.600">
-       <strong style={{ color: 'black' }}>At CAMIO</strong>, we offer two premium Paint Protection Film (PPF) series—TPU and TPH—designed to meet different needs and budgets. Both series deliver top-tier protection and aesthetic enhancement, while preserving your vehicle’s paint. Whether you want the flexibility of TPU or the affordability of TPH, CAMIO has you covered.
-    </Text>
-        <Link  href={'/about'}>
-        <Button2>
-          Who We Are
-        </Button2></Link>
+        <Text fontSize={{ base: 'md', md: 'md', lg: 'lg' }} color="gray.600">
+          <strong style={{ color: 'black' }}>At CAMIO</strong>, we offer two premium Paint Protection Film (PPF) series—TPU and TPH—designed to meet different needs and budgets. Both series deliver top-tier protection and aesthetic enhancement, while preserving your vehicle’s paint. Whether you want the flexibility of TPU or the affordability of TPH, CAMIO has you covered.
+        </Text>
+        <Link href={'/about'}>
+          <Button2>
+            Who We Are
+          </Button2></Link>
       </Stack>
 
       <Box
@@ -70,7 +71,7 @@ const Hero = () => {
         rounded="2xl"
         overflow="hidden"
         className='flex justify-center'
-        
+
       >
         <Image
           src={heroimg} // Replace with actual image path

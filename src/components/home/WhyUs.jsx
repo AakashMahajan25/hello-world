@@ -113,7 +113,7 @@ const WhyUs = () => {
   ];
 
   return (
-    <Box px={{ base: 2, lg: 36, md: 20, '2xl': 80 }} pt={{base:8}}>
+    <Box px={{ base: 2, lg: 36, md: 20, '2xl': 80 }} pt={{base:8, md:0, lg:'80px'}}>
       {/* Button Section */}
       <Button
         bg={"transparent"}

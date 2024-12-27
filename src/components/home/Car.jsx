@@ -78,7 +78,7 @@ const Car = () => {
   }, []);
 
   return (
-    <div className="lg:h-[100vh] h-[70vh] w-[100vw] bg-black flex items-center">
+    <div className="lg:h-[100vh] h-[70vh] w-[100vw] bg-black flex items-center lg:mt-[80px]">
       <div className={` hidden lg:block w-full h-full m-auto ${isMobile ? "p-4" : "w-[80vw]"}`}>
         <Canvas camera={{ position: isMobile ? [4.5, 3.5, 4.5] : [2.9, 2, 2.9] }}>
           <ambientLight />

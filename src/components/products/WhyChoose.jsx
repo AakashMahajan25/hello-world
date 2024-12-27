@@ -9,7 +9,7 @@ import Button3 from '../props/Button3';
 const WhyChoose = ({features, Img, text}) => {
 
   return (
-    <Container maxW="7xl" py={12}>
+    <Container maxW="7xl" py={12} >
       <Box position="relative">
         <Flex
           direction={{ base: 'column', md: 'row' }}

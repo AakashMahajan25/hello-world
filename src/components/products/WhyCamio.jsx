@@ -192,10 +192,10 @@ const WhyCamio = () => {
   );
 
   return (
-    <Box width="100vw" height="auto" px={{ base: 0, lg: 32 }} maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }}>
+    <Box width="100vw"px={{ base: 0, lg: 32 }} maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }}>
       {/* TPU Series Section */}
-      <Flex direction="column" align="center" justify="center" minHeight="90vh">
-        <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }}>
+      <Flex direction="column" align="center" justify="center" >
+        <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }} >
           <ProductProp
             imageSrc={tpuClearGlossCrop}
             title="CAMIO Elite TPU Protection Series"
@@ -208,7 +208,7 @@ const WhyCamio = () => {
         <Box
           width="100%"
           p={4}
-          my={{ base: 0, lg: 12 }}
+          // my={{ base: 0, lg: 12 }}
           py={{ base: 0, lg: 12 }}
           bgGradient="linear(to-r, rgba(158, 194, 194, 0.2) 21.17%, rgba(213, 203, 159, 0.2) 91.44%)"
           position="relative"
@@ -236,7 +236,7 @@ const WhyCamio = () => {
         <Box
           width="100%"
           p={4}
-          my={{ base: 0, lg: 12 }}
+          my={{ base: 0, lg: 0 }}
           py={{ base: 0, lg: 12 }}
           bgGradient="linear(to-r, rgba(158, 194, 194, 0.2) 21.17%, rgba(213, 203, 159, 0.2) 91.44%)"
           position="relative"

@@ -65,36 +65,6 @@ const Hero = () => {
     car26,
   ];
 
-  // const imagePositions = [
-  //   { top: "2.5px", left: "2.5px" },
-  //   { top: "2.5px", left: "187.3px" },
-  //   { top: "2.5px", left: "373.15px" },
-  //   { top: "2.5px", left: "558.47px" },
-  //   { top: "5.13px", left: "743.8px" },
-  //   { top: "2.5px", left: "929.12px" },
-  //   { top: "2.5px", left: "1114.44px" },
-  //   { top: "2.5px", left: "1299.77px" },
-  //   { top: "2.5px", left: "1485.09px" },
-  //   { top: "141.5px", left: "2.5px" },
-  //   { top: "141.5px", left: "193.09px" },
-  //   { top: "141.5px", left: "403.2px" },
-  //   { top: "141.5px", left: "624.34px" },
-  //   { top: "141.5px", left: "816.67px" },
-  //   { top: "141.5px", left: "989.23px" },
-  //   { top: "141.5px", left: "2.5px" },
-  //   { top: "141.5px", left: "1219.63px" },
-  //   { top: "142.75px", left: "1411.96px" },
-  //   { top: "144px", left: "1604.3px" },
-  //   { top: "280.49px", left: "27.55px" },
-  //   { top: "280.49px", left: "251.44px" },
-  //   { top: "280.49px", left: "453.29px" },
-  //   { top: "280.49px", left: "655.14px" },
-  //   { top: "280.49px", left: "856.99px" },
-  //   { top: "280.49px", left: "1058.85px" },
-  //   { top: "280.49px", left: "1260.7px" },
-  //   { top: "280.49px", left: "1462.55px" },
-  // ];
-
   useEffect(() => {
     let intervalId;
     if (isHovered) {
@@ -113,6 +83,7 @@ const Hero = () => {
     <Box
       as="section"
       py={{ base: 10, md: 20 }}
+      pb={{lg:0}}
       maxWidth={{ "2xl": "1500px" }}
       mx={{ "2xl": "auto" }}
     >
