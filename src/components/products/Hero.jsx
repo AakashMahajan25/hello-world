@@ -30,13 +30,13 @@ const Hero = () => {
         maxW={{ base: '100%', md: '50%' }}
         align={{ base: 'center', md: 'flex-start' }}
         textAlign={{ base: 'center', md: 'left' }}
-        p={{ base: 4 }}
+        p={{ base: 1 }}
 
       >
         <Heading
           fontFamily=""
           as="h1"
-          fontSize={{ base: '3xl', md: '3xl', lg: '44px', '2xl': '5xl' }}
+          fontSize={{ base: '2xl', md: '3xl', lg: '44px', '2xl': '5xl' }}
           fontWeight="bold"
         >
           Explore CAMIO PPF:
@@ -55,7 +55,7 @@ const Hero = () => {
         >
           “Unparalleled Protection with CAMIO TPU and TPH Series”
         </Text> */}
-        <Text fontSize={{ base: 'md', md: 'md', lg: 'lg' }} color="gray.600">
+        <Text fontSize={{ base: '15px', md: 'md', lg: 'lg' }} color="gray.600">
           <strong style={{ color: 'black' }}>At CAMIO</strong>, we offer two premium Paint Protection Film (PPF) series—TPU and TPH—designed to meet different needs and budgets. Both series deliver top-tier protection and aesthetic enhancement, while preserving your vehicle’s paint. Whether you want the flexibility of TPU or the affordability of TPH, CAMIO has you covered.
         </Text>
         <Link href={'/about'}>

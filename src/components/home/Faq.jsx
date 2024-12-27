@@ -140,7 +140,7 @@ const FaqItem = ({ question, answer }) => (
           <Flex flex="1" justify="space-between" align="center">
             <Text
               align="left"
-              fontSize={{ base: "18", lg: "22" }}
+              fontSize={{ base: "15", lg: "22" }}
               fontWeight={500}
             >
               {question}
@@ -194,7 +194,7 @@ const Faq = () => {
       <Box textAlign="start" mb={8} w={{ base: "100%", md: "35%" }}>
         <Heading
               fontFamily=""
-          fontSize={{ base: "35px", lg: "45px" }}
+          fontSize={{ base: "28px", lg: "45px" }}
           fontWeight={600}
           mb={6}
         >

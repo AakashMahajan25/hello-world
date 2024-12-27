@@ -44,7 +44,7 @@ const Reviews2 = () => {
       px={4}
       bgGradient="linear(96.56deg, rgba(158, 194, 194, 0.3) 27.8%, rgba(213, 203, 159, 0.3) 53.91%)"
       borderRadius="24px"
-      mt={{base:10, lg:'120px'}}
+      mt={{base:'80px', lg:'120px'}}
     >
       <Button
         bg="white"
@@ -65,7 +65,7 @@ const Reviews2 = () => {
         <Text>Testimonial</Text>
       </Button>
 
-      <Text fontSize="3xl" fontWeight="bold" textAlign="center" mb={8}>
+      <Text fontSize={{base:'22px', lg:"3xl"}} fontWeight="bold" textAlign="center" mb={8}>
         What Our Customers Are Saying About CAMIO PPF
       </Text>
 
@@ -100,7 +100,7 @@ const Reviews2 = () => {
                     </svg>
                   ))}
               </HStack>
-              <Text fontSize="lg">{review.text}</Text>
+              <Text fontSize={{base:14, lg:"lg"}}>{review.text}</Text>
             </VStack>
             <Text mt={4} fontWeight="bold" color="gray.500">
               @{review.author}

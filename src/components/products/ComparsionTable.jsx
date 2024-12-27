@@ -17,16 +17,16 @@ const ComparisonTable = () => {
       <Heading
         as="h4"
         maxWidth="800px"
-        mx="auto"
+        mx="14px"
      
         textAlign="center"
-        fontSize={{ base: "2xl", md: "3xl" }}
+        fontSize={{ base: "xl", md: "3xl" }}
         color="gray.700"
         fontWeight="bold"
       >
         Not sure which CAMIO PPF is right for you? Use our comparison chart to find the best fit for your vehicle.
       </Heading>
-      <TableContainer m={10} maxW={{lg:'98vw'}}>
+      <TableContainer m={{base:2, lg:10}} maxW={{base:'100vw',lg:'98vw'}}>
         <Table variant="striped" colorScheme="teal">
           <Thead bg="teal.500">
             <Tr>

@@ -12,7 +12,7 @@ const ProductProp = ({
   flexDirection = "flex",
 }) => {
   return (
-    <div className="max-w-full mx-auto p-4 md:p-8 lg:px-3 pb-16 lg:py-[120px]">
+    <div className="max-w-full mx-auto px-4 md:p-8 lg:px-3 py-[80px] lg:py-[120px]">
       <Card overflow="hidden" boxShadow="none" border="none">
         <div className={`md:flex flex-col ${flexDirection === "reverse-flex"
             ? "md:flex-row-reverse"
@@ -43,7 +43,7 @@ const ProductProp = ({
               <Heading
               fontFamily=""
                 as="h2"
-                fontSize={{ base: "28px", md: "32px", lg: "38px" }}
+                fontSize={{ base: "26px", md: "32px", lg: "38px" }}
                 fontWeight="700"
                 textAlign="left"
                 mb={{ base: "18px", lg: "10px" }}
@@ -55,7 +55,7 @@ const ProductProp = ({
                   lineHeight: "1.4",
                   textAlign: "left",
                 }}
-                className="lg:text-[17px] font-[400] mb-0"
+                className="lg:text-[17px] text-[15px] font-[400] mb-0"
               >
                 {description}
               </p>
@@ -85,7 +85,7 @@ const ProductProp = ({
                         //   fontWeight: 400,
                         //   lineHeight: "1.4",
                         // }}
-                        className="text-[16px] lg:text-[16px] font-[400]"
+                        className="text-[15px] lg:text-[16px] font-[400]"
                       >
                         {feature.description}
                       </p>

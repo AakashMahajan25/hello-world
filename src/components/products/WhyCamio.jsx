@@ -208,6 +208,7 @@ const WhyCamio = () => {
         <Box
           width="100%"
           p={4}
+      
           // my={{ base: 0, lg: 12 }}
           py={{ base: 0, lg: 12 }}
           bgGradient="linear(to-r, rgba(158, 194, 194, 0.2) 21.17%, rgba(213, 203, 159, 0.2) 91.44%)"

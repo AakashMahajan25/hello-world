@@ -9,7 +9,7 @@ import Button3 from '../props/Button3';
 const WhyChoose = ({ features, Img, text }) => {
 
   return (
-    <Container maxW="7xl"  pt={{lg:'120px'}} >
+    <Container maxW="7xl"  pt={{base:'80px',lg:'120px'}} >
       <Box position="relative">
         <Flex
           direction={{ base: 'column', md: 'row' }}
@@ -57,10 +57,10 @@ const WhyChoose = ({ features, Img, text }) => {
                 </Circle>
                 <Box px={10}>
                   <Heading
-                    fontFamily="" size="lg" mb={{ base: 0, lg: 2 }} width={'full'}>
+                    fontFamily="" fontSize={{base:'20px', lg:'30px'}} mb={{ base: 0, lg: 2 }} width={'full'}>
                     {feature.title}
                   </Heading>
-                  <Text color="gray.600" minH={42}>
+                  <Text color="gray.600" minH={42} fontSize={{base:'14px', lg:'30px'}}>
                     {feature.description}
                   </Text>
                 </Box>

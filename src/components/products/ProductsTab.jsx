@@ -326,10 +326,10 @@ const ProductsTab = () => {
                       {product.description}
                     </Text>
                     <Tabs>
-                      <TabList>
-                        <Tab py={{ base: 3, md: 6 }}>Key Features</Tab>
-                        <Tab py={{ base: 3, md: 6 }}>Usages</Tab>
-                        <Tab py={{ base: 3, md: 6 }}>Specifications</Tab>
+                      <TabList fontSize={{base:'2px'}}>
+                        <Tab py={{ base: 3, md: 6 }} fontSize={{base:'14px'}}>Key Features</Tab>
+                        <Tab py={{ base: 3, md: 6 }} fontSize={{base:'14px'}}>Usages</Tab>
+                        <Tab py={{ base: 3, md: 6 }} fontSize={{base:'14px'}}>Specifications</Tab>
                       </TabList>
                       <TabPanels height={{base:"300px", lg:"230px"}} overflowY={"auto"}>
                         <TabPanel>

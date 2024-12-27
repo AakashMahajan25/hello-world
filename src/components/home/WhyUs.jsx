@@ -113,7 +113,7 @@ const WhyUs = () => {
   ];
 
   return (
-    <Box px={{ base: 2, lg: 36, md: 20, '2xl': 80 }} pt={{base:8, md:0, lg:'80px'}}>
+    <Box px={{ base: 2, lg: 36, md: 20, '2xl': 80 }} pt={{base:'80px', md:0, lg:'80px'}}>
       {/* Button Section */}
       <Button
         bg={"transparent"}
@@ -143,7 +143,7 @@ const WhyUs = () => {
           as={"h2"}
           fontWeight={600}
           width={{ base: "100%", lg: "55%" }}
-          fontSize={{ base: "32px", lg: "48px" }}
+          fontSize={{ base: "28px", lg: "48px" }}
           textAlign={{ base: "center", lg: "left" }}
           px={{base:0, lg:2}}
         >
@@ -162,7 +162,7 @@ const WhyUs = () => {
             borderTopWidth={{ base: 1, lg: 0 }}
             pl={{ base: 0, lg: 10 }}
             fontWeight={400}
-            fontSize={{ base: "16px", md: "18px" }} // Responsive font size
+            fontSize={{ base: "15px", md: "18px" }} // Responsive font size
             color={"#515151"}
             textAlign={{ base: 'center', lg: "left" }}
             pt={{ base: 4, lg: 0 }}

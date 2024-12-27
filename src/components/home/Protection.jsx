@@ -68,7 +68,7 @@ const Protection = () => {
         py={{ base: 8, lg: 12 }}
         bgGradient="linear(to-r, red.400, yellow.400)"
         bgClip="text"
-        fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+        fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
         fontWeight="bold"
       >
         CLEAR AND COMPLETE{" "}

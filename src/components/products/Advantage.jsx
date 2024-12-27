@@ -217,7 +217,7 @@ const Advantage = () => {
     },
   ];
   return (
-    <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }} py={{ lg:'100px'}} >
+    <Box maxW={{ "2xl": "1500px" }} mx={{ "2xl": "auto" }} py={{base:'80px', lg:'100px'}} >
       <Heading
               fontFamily=""
         as={"h3"}

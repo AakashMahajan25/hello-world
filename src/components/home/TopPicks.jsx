@@ -27,13 +27,13 @@ import tphMatte from "@/assets/products/newImages/tphMatte.jpg"
 
 const PremiumProtection = () => {
   return (
-    <Box py={16} pt={{ base: 20, lg: '140px' }} pb={{lg:0}}>
+    <Box py={16} pt={{ base: '80px', lg: '140px' }} pb={{lg:0}}>
       <Container maxW="container.xl">
         <VStack spacing={{ base: 2, lg: 8 }} align="stretch">
           <Box textAlign={"center"}>
             <Button
               bg={"transparent"}
-              margin={{ base: "auto", lg: 0 }}
+              mb={{ base: "16px", lg: 0 }}
               borderStyle={"solid"}
               borderRadius={"full"}
               fontWeight={500}
@@ -59,7 +59,7 @@ const PremiumProtection = () => {
             </Heading>
 
             <Text
-              fontSize={{ base: "16px", lg: "18px" }}
+              fontSize={{ base: "15px", lg: "18px" }}
               fontWeight={400}
               color="#000000"
               mb={6}

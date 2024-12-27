@@ -134,13 +134,13 @@ const Hero = () => {
             <Heading
               fontFamily=""
               as="h1"
-              fontSize={{ base: "3xl", md: "4xl", lg: "5xl", "2xl": "5xl" }}
+              fontSize={{ base: "2xl", md: "4xl", lg: "5xl", "2xl": "5xl" }}
               fontWeight="bold"
               mb={4}
             >
               Unmatched Protection, Unbeatable Shine with Camio PPF
             </Heading>
-            <Text mb={6} fontSize={{ base: "md", md: "md" }}>
+            <Text mb={6} fontSize={{ base: "sm", md: "md" }}>
               Shield your vehicle with CAMIO&apos;s top-tier Paint Protection Film,
               trusted by professionals worldwide.
             </Text>
