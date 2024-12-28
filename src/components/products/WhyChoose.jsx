@@ -57,10 +57,10 @@ const WhyChoose = ({ features, Img, text }) => {
                 </Circle>
                 <Box px={10}>
                   <Heading
-                    fontFamily="" fontSize={{base:'20px', lg:'30px'}} mb={{ base: 0, lg: 2 }} width={'full'}>
+                    fontFamily="" fontSize={{base:'20px', lg:'24px'}} mb={{ base: 0, lg: 2 }} width={'full'}>
                     {feature.title}
                   </Heading>
-                  <Text color="gray.600" minH={42} fontSize={{base:'14px', lg:'30px'}}>
+                  <Text color="gray.600" minH={42} fontSize={{base:'14px', lg:'20px'}}>
                     {feature.description}
                   </Text>
                 </Box>
