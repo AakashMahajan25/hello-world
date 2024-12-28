@@ -128,6 +128,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
+          technicalDataSheet:[]
         },
       },
       {
@@ -156,6 +157,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
+          technicalDataSheet:[]
         },
       },
       {
@@ -184,6 +186,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
+          technicalDataSheet:[]
         },
       },
     ],
@@ -217,6 +220,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
+          technicalDataSheet:[]
         },
       },
       {
@@ -245,6 +249,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
+          technicalDataSheet:[]
         },
       },
       {
@@ -273,6 +278,7 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
+          technicalDataSheet:[]
         },
       },
       {
