@@ -71,3 +71,8 @@ html {
   border-radius: 20px;
   padding: 6px 14px;
 }
+
+
+.custom-phone-input .react-tel-input .flag-dropdown {
+  display: none; 
+}

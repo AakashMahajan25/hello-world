@@ -19,6 +19,7 @@ const customTheme = extendTheme({
     heading: "Sora, sans-serif", // Use Sora for headings
     body: "Sora, sans-serif",    // Use Sora for body text
   },
+  
 
 });
 

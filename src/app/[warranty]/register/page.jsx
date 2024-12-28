@@ -22,6 +22,8 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  Badge,
+  Flex
 } from "@chakra-ui/react";
 
 export default function WarrantyRegistration() {
@@ -57,6 +59,7 @@ export default function WarrantyRegistration() {
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
+    console.log(selectedCategory)
     if (selectedCategory.includes("tpu")) {
       setWarrantyDuration("5 years");
     } else if (selectedCategory.includes("tph")) {
@@ -173,46 +176,35 @@ export default function WarrantyRegistration() {
             {/* PPF Category */}
             <FormControl isRequired>
               <FormLabel>PPF Category</FormLabel>
-              <Select
-                name="ppfCategory"
-                placeholder="Select PPF category"
-                onChange={handleCategoryChange}
-              >
-                <option value="camio-tpu-clear-gloss">
-                  CAMIO TPU Clear Gloss
-                </option>
-                <option value="camio-tpu-black-gloss">
-                  CAMIO TPU Black Gloss
-                </option>
-                <option value="camio-tpu-clear-matte">
-                  CAMIO TPU Clear Matte
-                </option>
-                <option value="camio-tpu-black-matte">
-                  CAMIO TPU Black Matte
-                </option>
-                <option value="camio-tph-clear-gloss">
-                  Camio TPH Clear Gloss
-                </option>
-                <option value="camio-tph-clear-matte">
-                  Camio TPH Clear Matte
-                </option>
-                <option value="camio-tph-color-gloss">
-                  Camio TPH Color Gloss
-                </option>
-                <option value="camio-tph-black-gloss">
-                  Camio TPH Black Gloss
-                </option>
-              </Select>
+              <Flex align="center" justify="space-between" gap={4} direction={{base:'column', md:'row'}}>
+                <Select
+                  name="ppfCategory"
+                  placeholder="Select PPF category"
+                  onChange={handleCategoryChange}
+                  flex="1" // Ensures it takes up available space
+                >
+                  <option value="camio-tpu-clear-gloss">CAMIO TPU Clear Gloss</option>
+                  <option value="camio-tpu-black-gloss">CAMIO TPU Black Gloss</option>
+                  <option value="camio-tpu-clear-matte">CAMIO TPU Clear Matte</option>
+                  <option value="camio-tpu-black-matte">CAMIO TPU Black Matte</option>
+                  <option value="camio-tph-clear-gloss">Camio TPH Clear Gloss</option>
+                  <option value="camio-tph-clear-matte">Camio TPH Clear Matte</option>
+                  <option value="camio-tph-color-gloss">Camio TPH Color Gloss</option>
+                  <option value="camio-tph-black-gloss">Camio TPH Black Gloss</option>
+                </Select>
+                <Flex align="center" gap={2}>
+                  <Text fontSize="sm" fontWeight="medium" color="gray.600">
+                    Warranty:
+                  </Text>
+                  <Badge colorScheme="yellow" px={2} py={1} borderRadius="md">
+                    {warrantyDuration || "Not Available"}
+                  </Badge>
+                </Flex>
+              </Flex>
             </FormControl>
 
-            {/* Warranty Duration */}
-            {warrantyDuration && (
-              <FormControl>
-                <FormLabel>Warranty Duration</FormLabel>
-                <Text>{warrantyDuration}</Text>
-              </FormControl>
-            )}
 
+          
             {/* Image Upload */}
             <FormControl isRequired>
               <FormLabel>Car Image with PPF Roll</FormLabel>
