@@ -13,12 +13,14 @@ import {
   Table,
   Thead,
   Tbody,
-  List, ListItem, ListIcon,
+  List,
+  ListItem,
+  ListIcon,
   Tr,
   Th,
   Td,
-  SimpleGrid, Stack
-
+  SimpleGrid,
+  Stack,
 } from "@chakra-ui/react";
 
 import Image from "next/image";
@@ -63,43 +65,42 @@ const productData = [
           ],
           technicalDataSheet: [
             {
-              rowHeading: 'Peel Strength',
-              unit: '(kgf/inch)',
-              testResult: '1.6(+-0.2)',
-              method: 'FLK-3001',
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.6(+-0.2)",
+              method: "FLK-3001",
             },
             {
-              rowHeading: 'Elongation at Break',
-              unit: '(%)',
-              testResult: '135(+-10)',
-              method: 'FLK-3003',
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "135(+-10)",
+              method: "FLK-3003",
             },
             {
-              rowHeading: 'Tensile Strength',
-              unit: '(kgf/inch)',
-              testResult: '3.0(+-0.3)',
-              method: 'FLK-3005',
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "3.0(+-0.3)",
+              method: "FLK-3005",
             },
             {
-              rowHeading: 'Water Slip Angle',
-              unit: '(degree)',
-              testResult: '139(+-3)',
-              method: 'FLK-3002',
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "139(+-3)",
+              method: "FLK-3012",
             },
             {
-              rowHeading: 'Self Healing speed(1kg)',
-              unit: '(sec)',
-              testResult: '5sec(+-5sec)',
-              method: 'FLK-3005',
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "5sec(+-5sec)",
+              method: "FLK-3005",
             },
             {
-              rowHeading: 'Gloss, 60°',
-              unit: '',
-              testResult: '>98%',
-              method: 'FLK-3009',
+              rowHeading: "Gloss, 60°",
+              unit: "",
+              testResult: ">98%",
+              method: "FLK-3009",
             },
-          ]
-
+          ],
         },
       },
       {
@@ -128,7 +129,44 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.6(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "115(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "2.5(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "135(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "6sec(+-5sec)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Gloss, 60°",
+              unit: "",
+              testResult: ">95%",
+              method: "FLK-3009",
+            },
+          ],
         },
       },
       {
@@ -157,7 +195,38 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.5(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "125(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "2.9(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "135(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "6sec(+-5sec)",
+              method: "FLK-3005",
+            },
+          ],
         },
       },
       {
@@ -186,7 +255,38 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Flexible and easy to install",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.5(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "115(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "2.5(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "135(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "10sec(+-5sec)",
+              method: "FLK-3005",
+            },
+          ],
         },
       },
     ],
@@ -220,7 +320,44 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.4(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "115(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.8(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "115(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "10sec(+-5sec)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Gloss, 60°",
+              unit: "",
+              testResult: ">90%",
+              method: "FLK-3009",
+            },
+          ],
         },
       },
       {
@@ -249,7 +386,39 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.4(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "105(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.6(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "115(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "10sec(+-5sec)",
+              method: "FLK-3005",
+            },
+           
+          ],
         },
       },
       {
@@ -278,7 +447,44 @@ const productData = [
             "Size: 1.52 x 15 meters (covers 250 sq. ft.)",
             "Application: Fast installation with moderate flexibility",
           ],
-          technicalDataSheet:[]
+          technicalDataSheet: [
+            {
+              rowHeading: "Peel Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.4(+-0.2)",
+              method: "FLK-3001",
+            },
+            {
+              rowHeading: "Elongation at Break",
+              unit: "(%)",
+              testResult: "115(+-10)",
+              method: "FLK-3003",
+            },
+            {
+              rowHeading: "Tensile Strength",
+              unit: "(kgf/inch)",
+              testResult: "1.5(+-0.3)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Water Slip Angle",
+              unit: "(degree)",
+              testResult: "105(+-3)",
+              method: "FLK-3012",
+            },
+            {
+              rowHeading: "Self Healing speed(1kg)",
+              unit: "(sec)",
+              testResult: "10sec(+-5sec)",
+              method: "FLK-3005",
+            },
+            {
+              rowHeading: "Gloss, 60°",
+              unit: "",
+              testResult: ">95%",
+              method: "FLK-3009",
+            },
+          ],
         },
       },
       {
@@ -308,16 +514,15 @@ const productData = [
             "Application: Fast and easy to apply",
           ],
           technicalDataSheet: [
-            { color: 'Glossy White', code: '#FFFFFF' },
-            { color: 'Glossy Stone Grey', code: '#9E9E9E' },
-            { color: 'Glossy Nardo Grey', code: '#5A5A5A' },
-            { color: 'Glossy Yellow', code: '#FFEB3B' },
-            { color: 'Glossy Sunflower Yellow', code: '#FFDA00' },
-            { color: 'Glossy Tiffany', code: '#0ABAB5' },
-            { color: 'Glossy Apple Green', code: '#8DB600' },
-            { color: 'Glossy Red', code: '#FF3B30' },
-          ]
-
+            { color: "Glossy White", code: "#FFFFFF" },
+            { color: "Glossy Stone Grey", code: "#9E9E9E" },
+            { color: "Glossy Nardo Grey", code: "#5A5A5A" },
+            { color: "Glossy Yellow", code: "#FFEB3B" },
+            { color: "Glossy Sunflower Yellow", code: "#FFDA00" },
+            { color: "Glossy Tiffany", code: "#0ABAB5" },
+            { color: "Glossy Apple Green", code: "#8DB600" },
+            { color: "Glossy Red", code: "#FF3B30" },
+          ],
         },
       },
     ],
@@ -339,9 +544,13 @@ const ProductsTab = () => {
               fontWeight={"semibold"}
               key={index}
               color={"gray.500"}
-              _selected={{ borderBottom: "2px solid", borderColor: "black", bg: "gray.100", color: "black" }}
-              borderBottom={'2px solid'}
-
+              _selected={{
+                borderBottom: "2px solid",
+                borderColor: "black",
+                bg: "gray.100",
+                color: "black",
+              }}
+              borderBottom={"2px solid"}
             >
               {tab.series}
             </Tab>
@@ -390,13 +599,36 @@ const ProductsTab = () => {
                       {product.description}
                     </Text>
                     <Tabs>
-                      <TabList fontSize={{ base: '2px' }}>
-                        <Tab py={{ base: 3, md: 6 }} fontSize={{ base: '14px' }}>Key Features</Tab>
-                        <Tab py={{ base: 3, md: 6 }} fontSize={{ base: '14px' }}>Usages</Tab>
-                        <Tab py={{ base: 3, md: 6 }} fontSize={{ base: '14px' }}>Specifications</Tab>
-                        <Tab py={{ base: 3, md: 6 }} fontSize={{ base: '14px' }}>Technical Data Sheet</Tab>
+                      <TabList fontSize={{ base: "2px" }}>
+                        <Tab
+                          py={{ base: 3, md: 6 }}
+                          fontSize={{ base: "14px" }}
+                        >
+                          Key Features
+                        </Tab>
+                        <Tab
+                          py={{ base: 3, md: 6 }}
+                          fontSize={{ base: "14px" }}
+                        >
+                          Usages
+                        </Tab>
+                        <Tab
+                          py={{ base: 3, md: 6 }}
+                          fontSize={{ base: "14px" }}
+                        >
+                          Specifications
+                        </Tab>
+                        <Tab
+                          py={{ base: 3, md: 6 }}
+                          fontSize={{ base: "14px" }}
+                        >
+                          Technical Data Sheet
+                        </Tab>
                       </TabList>
-                      <TabPanels height={{ base: "300px", lg: "250px", xl:'350px' }} overflowY={"auto"}>
+                      <TabPanels
+                        height={{ base: "300px", lg: "250px", xl: "350px" }}
+                        overflowY={"auto"}
+                      >
                         <TabPanel>
                           <UnorderedList>
                             {product.details.keyFeatures.map((feature, i) => (
@@ -437,50 +669,72 @@ const ProductsTab = () => {
                           </UnorderedList>
                         </TabPanel>
                         <TabPanel>
-
-
-                          {product.title == 'CAMIO TPH Color Gloss' ? <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={6}>
-                            {product.details.technicalDataSheet?.map((data, i) => (
-                              <Box
-                                key={i}
-                                p={5}
-                                shadow="md"
-                                borderWidth="1px"
-                                borderRadius="lg"
-                                display="flex"
-                                flexDirection="column"
-                                alignItems="center"
-                                justifyContent="center"
-                                bg={data?.code }
-                                _hover={{ bg: data?.code }}
-                              >
-                                <Text fontSize="xl" fontWeight="semibold" mb={2}>
-                                  {data.color}
-                                </Text>
-                              </Box>
-                            ))}
-                          </SimpleGrid> : <Table className="min-w-full border-collapse">
-                            <Thead>
-                              <Tr>
-                                <Th className="border-b px-4 py-2"></Th>
-                                <Th className="border-b px-4 py-2">Unit 1</Th>
-                                <Th className="border-b px-4 py-2">Test Result</Th>
-                                <Th className="border-b px-4 py-2">Method</Th>
-                              </Tr>
-                            </Thead>
-                            <Tbody>
-                              {product.details.technicalDataSheet?.map((data, i) => (
-                                <Tr key={i}>
-                                  <Th className="border-b px-4 py-2">{data.rowHeading}</Th>
-                                  <Td className="border-b px-4 py-2">{data.unit}</Td>
-                                  <Td className="border-b px-4 py-2">{data.testResult}</Td>
-                                  <Td className="border-b px-4 py-2">{data.method}</Td>
+                          {product.title == "CAMIO TPH Color Gloss" ? (
+                            <SimpleGrid
+                              columns={{ base: 2, sm: 3, md: 4 }}
+                              spacing={6}
+                            >
+                              {product.details.technicalDataSheet?.map(
+                                (data, i) => (
+                                  <Box
+                                    key={i}
+                                    p={5}
+                                    shadow="md"
+                                    borderWidth="1px"
+                                    borderRadius="lg"
+                                    display="flex"
+                                    flexDirection="column"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                    bg={data?.code}
+                                    _hover={{ bg: data?.code }}
+                                  >
+                                    <Text
+                                      fontSize="xl"
+                                      fontWeight="semibold"
+                                      mb={2}
+                                    >
+                                      {data.color}
+                                    </Text>
+                                  </Box>
+                                )
+                              )}
+                            </SimpleGrid>
+                          ) : (
+                            <Table className="min-w-full border-collapse">
+                              <Thead>
+                                <Tr>
+                                  <Th className="border-b px-4 py-2"></Th>
+                                  <Th className="border-b px-4 py-2">Unit 1</Th>
+                                  <Th className="border-b px-4 py-2">
+                                    Test Result
+                                  </Th>
+                                  <Th className="border-b px-4 py-2">Method</Th>
                                 </Tr>
-                              ))}
-                            </Tbody>
-                          </Table>}
+                              </Thead>
+                              <Tbody>
+                                {product.details.technicalDataSheet?.map(
+                                  (data, i) => (
+                                    <Tr key={i}>
+                                      <Th className="border-b px-4 py-2">
+                                        {data.rowHeading}
+                                      </Th>
+                                      <Td className="border-b px-4 py-2">
+                                        {data.unit}
+                                      </Td>
+                                      <Td className="border-b px-4 py-2">
+                                        {data.testResult}
+                                      </Td>
+                                      <Td className="border-b px-4 py-2">
+                                        {data.method}
+                                      </Td>
+                                    </Tr>
+                                  )
+                                )}
+                              </Tbody>
+                            </Table>
+                          )}
                         </TabPanel>
-
                       </TabPanels>
                     </Tabs>
                   </Box>

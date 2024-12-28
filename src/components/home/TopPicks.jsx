@@ -15,7 +15,7 @@ import topPicks2 from "../../assets/topPicks2.png";
 import topPicks3 from "../../assets/topPicks3.png";
 import topPicks4 from "../../assets/topPicks4.png";
 import topPicks5 from "../../assets/topPicks5.png";
-import topPicksmatte from "../../assets/topPicksMatte.jpg";
+import topPicksmatte from "../../assets/topPicksMatte3.jpg";
 import Image from "next/image";
 import { FiChevronRight } from "react-icons/fi";
 import Button2 from "../props/Button";
