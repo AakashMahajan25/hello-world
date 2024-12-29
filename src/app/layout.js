@@ -87,9 +87,9 @@ export default function RootLayout({ children }) {
     return true;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!validateForm()) return;
-
+  
     const formData = {
       name: name.trim(),
       email: email.trim() || null,
@@ -100,16 +100,35 @@ export default function RootLayout({ children }) {
       businessType: businessType.trim() || null,
       inquiryMessage: inquiryMessage.trim() || null,
     };
-
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Form submitted successfully!",
-      status: "success",
-      duration: 2000,
-      isClosable: true,
-    });
-    onClose();
+  
+    try {
+      const response = await axios.post("/api/inquiries", formData);
+  
+      if (response.status === 200 || response.status === 201) {
+        toast({
+          title: "Form submitted successfully!",
+          description: "We have received your inquiry.",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+        onClose();
+      } else {
+        throw new Error("Unexpected response from the server");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+  
+      toast({
+        title: "Submission failed.",
+        description: "Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
+  
 
   return (
     <html lang="en">
