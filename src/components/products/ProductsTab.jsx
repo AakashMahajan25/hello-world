@@ -563,7 +563,7 @@ const ProductsTab = () => {
               {tab.products.map((product, productIndex) => (
                 <Flex
                   key={productIndex}
-                  mb={0}
+                  mb={{base:10, lg:0}}
                   alignItems="center"
                   direction={{ base: "column", md: "row" }} // Stack on small screens, row on larger
                 >
@@ -580,9 +580,9 @@ const ProductsTab = () => {
                     />
                   </Box>
                   <Box
-                    height={{ base: "550px", md: "750px", lg: "500px" }}
+                    height={{ base: "550px", md: "750px", lg: "650px", '2xl':'500px' }}
                     width={{ base: "100%", md: "50%" }}
-                    padding={{ base: 4, md: 8 }}
+                    padding={{ base: 2, md: 8 }}
                   >
                     <Heading
                       fontFamily=""
@@ -602,31 +602,32 @@ const ProductsTab = () => {
                       <TabList fontSize={{ base: "2px" }}>
                         <Tab
                           py={{ base: 3, md: 6 }}
-                          fontSize={{ base: "14px" }}
+                          
+                          fontSize={{ base: "11px", lg:'14px' }}
                         >
                           Key Features
                         </Tab>
                         <Tab
                           py={{ base: 3, md: 6 }}
-                          fontSize={{ base: "14px" }}
+                          fontSize={{ base: "11px", lg:'14px' }}
                         >
                           Usages
                         </Tab>
                         <Tab
                           py={{ base: 3, md: 6 }}
-                          fontSize={{ base: "14px" }}
+                          fontSize={{ base: "11px", lg:'14px' }}
                         >
                           Specifications
                         </Tab>
                         <Tab
                           py={{ base: 3, md: 6 }}
-                          fontSize={{ base: "14px" }}
+                          fontSize={{ base: "11px", lg:'14px' }}
                         >
                           Technical Data Sheet
                         </Tab>
                       </TabList>
                       <TabPanels
-                        height={{ base: "300px", lg: "250px", xl: "350px" }}
+                        height={{ base: "250px", lg: "250px", xl: "350px" }}
                         overflowY={"auto"}
                       >
                         <TabPanel>
@@ -678,7 +679,7 @@ const ProductsTab = () => {
                                 (data, i) => (
                                   <Box
                                     key={i}
-                                    p={5}
+                                    p={{base:2, lg:5}}
                                     shadow="md"
                                     borderWidth="1px"
                                     borderRadius="lg"
@@ -690,7 +691,7 @@ const ProductsTab = () => {
                                     _hover={{ bg: data?.code }}
                                   >
                                     <Text
-                                      fontSize="xl"
+                                      fontSize={{base:'sm', lg:"xl"}}
                                       fontWeight="semibold"
                                       mb={2}
                                     >
@@ -719,13 +720,13 @@ const ProductsTab = () => {
                                       <Th className="border-b px-4 py-2">
                                         {data.rowHeading}
                                       </Th>
-                                      <Td className="border-b px-4 py-2">
+                                      <Td className="border-b px-4 py-2 text-xs lg:text-base">
                                         {data.unit}
                                       </Td>
-                                      <Td className="border-b px-4 py-2">
+                                      <Td className="border-b px-4 py-2 text-xs lg:text-base">
                                         {data.testResult}
                                       </Td>
-                                      <Td className="border-b px-4 py-2">
+                                      <Td className="border-b px-4 py-2 text-xs lg:text-base">
                                         {data.method}
                                       </Td>
                                     </Tr>

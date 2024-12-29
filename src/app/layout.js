@@ -1,5 +1,4 @@
 'use client';
-import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
@@ -25,21 +24,11 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { PhoneNumber } from "react-phone-number-input";
+
 
 const sora = Sora({ subsets: ["latin"] });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export default function RootLayout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -131,12 +120,12 @@ export default function RootLayout({ children }) {
       <body className={`${sora.className} antialiased overflow-x-hidden relative`}>
         <Providers>
           {!isAdminRoute && <Navbar />}
-          <button
+          {isAdminRoute ? '' : <button
             onClick={onOpen}
-            className="text-5xl fixed right-10 bottom-10 cursor-pointer text-yellow-400"
+            className=" text-3xl lg:text-5xl fixed right-10 bottom-10 cursor-pointer text-yellow-400"
           >
             <IoChatbubbleEllipsesOutline />
-          </button>
+          </button>}
 
           <Modal
             initialFocusRef={initialRef}

@@ -355,12 +355,27 @@ const Footer = () => {
             borderColor="whiteAlpha.300"
             spacing={4}
           >
-            <Text fontSize={{ base: "10px", lg: "16px" }}>
-              © {currentYear} Copyright By Camio PPF
-            </Text>
+
+            <Box>
+
+              <Text fontSize={{ base: "10px", lg: "16px" }}>
+                © {currentYear} Copyright By Camio PPF
+              </Text>
+              <Text>
+                <Link
+                  href="/terms&conditions"
+
+                  rel="noopener noreferrer"
+                  className="text-gray-200 hover:text-white"
+                >
+                  Terms and Conditions
+                </Link>
+              </Text>
+            </Box>
+
             <Image src={logo} width={150} height="auto" alt="logo" />
             <HStack spacing={4}>
-              <Text className="text-end px-10 text-gray-400 lg:pb-0 pb-3">
+              <Text className="lg:text-end text-center  px-10 text-gray-400 lg:pb-0 pb-3">
                 Crafted with{" "}
                 <span className="inline-block text-[#FFBB4E] align-middle">
                   <svg

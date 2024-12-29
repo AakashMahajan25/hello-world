@@ -16,8 +16,8 @@ const ComparisonTable = () => {
     <Box >
       <Heading
         as="h4"
-        maxWidth={{base:"800px", lg:'full'}}
-        mx="14px"
+        maxWidth={{base:"800px", lg:'1000px'}}
+        mx={{base:"14px", lg:'auto'}}
      
         textAlign="center"
         fontSize={{ base: "xl", md: "3xl" }}

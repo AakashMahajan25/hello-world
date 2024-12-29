@@ -96,7 +96,7 @@ const Car = () => {
           <Environment preset="sunset" />
         </Canvas>
       </div>
-      <Image src={Model} height={1000} width={1000} className="lg:hidden" />
+      <Image src={Model} height={1000} width={1000} className="lg:hidden" alt="Car Diagram" />
     </div>
   );
 };

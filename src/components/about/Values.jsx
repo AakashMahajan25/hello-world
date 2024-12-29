@@ -36,7 +36,7 @@ const valuesData = [
 
 const Values = () => {
   return (
-    <Flex direction="column" align="center" px={8}>
+    <Flex direction="column" align="center" px={8} my={{base:'50px', lg:'30px'}}>
       <Heading
         fontFamily=""
         pb={{ base: 8, lg: 0 }}

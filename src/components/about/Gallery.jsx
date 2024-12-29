@@ -11,7 +11,7 @@ import bikeimg from "@/assets/products/mghectar.jpg"
 
 const Gallery = () => {
   return (
-    <Flex width={'100%'} p={{ lg: 4, '2xl': 40 }} pb={{lg:'120px'}} flexDir={{base:'column', lg:'row'}} >
+    <Flex width={'100%'} p={{ lg: 4, '2xl': 40 }} pb={{md:'80px',lg:'120px'}} flexDir={{base:'column', lg:'row'}} >
       <Box width={{base:'100%', lg:'66%'}}>
         <Flex width={'100%'}>
           <Box width={'full'} p={2}><Image src={camio} alt='camio' width={400} height={420} className='w-full' /></Box>

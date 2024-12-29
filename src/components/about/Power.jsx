@@ -6,7 +6,7 @@ import Button2 from "../props/Button2";
 
 const Power = () => {
   return (
-    <Box>
+    <Box my={{base:'0', lg:'80px'}}>
       <Flex
         align="center"
         justify="center"
