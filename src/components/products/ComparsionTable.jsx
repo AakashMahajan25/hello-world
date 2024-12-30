@@ -27,7 +27,7 @@ const ComparisonTable = () => {
         Not sure which CAMIO PPF is right for you? Use our comparison chart to find the best fit for your vehicle.
       </Heading>
       <TableContainer m={{base:2, lg:10}} maxW={{base:'100vw',lg:'98vw'}}>
-        <Table variant="striped" colorScheme="blackAlpha">
+        <Table variant="striped" >
           <Thead bg="gray">
             <Tr>
               <Th color="white">Feature</Th>
@@ -42,7 +42,7 @@ const ComparisonTable = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr bg="gray.50">
+            <Tr bg="white">
               <Td fontWeight={"semibold"}>Finish Type</Td>
               <Td>High Gloss</Td>
               <Td>High Gloss</Td>
@@ -53,7 +53,7 @@ const ComparisonTable = () => {
               <Td>High Gloss</Td>
               <Td>Gloss + Color</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Self-Healing Technology</Td>
               <Td>Yes</Td>
               <Td>Yes</Td>
@@ -64,7 +64,7 @@ const ComparisonTable = () => {
               <Td>Yes</Td>
               <Td>Yes</Td>
             </Tr>
-            <Tr bg="gray.50">
+            <Tr bg="white">
               <Td fontWeight={"semibold"}>Hydrophobic Properties</Td>
               <Td>Yes</Td>
               <Td>Yes</Td>
@@ -75,7 +75,7 @@ const ComparisonTable = () => {
               <Td>Yes</Td>
               <Td>Yes</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Total Film Thickness</Td>
               <Td>190 microns</Td>
               <Td>190 microns</Td>
@@ -86,7 +86,7 @@ const ComparisonTable = () => {
               <Td>190 microns</Td>
               <Td>160 microns</Td>
             </Tr>
-            <Tr bg="gray.50">
+            <Tr bg="white">
               <Td fontWeight={"semibold"}>Film Specification</Td>
               <Td>1.52*15m</Td>
               <Td>1.52*15m</Td>
@@ -97,7 +97,7 @@ const ComparisonTable = () => {
               <Td>1.52*15m</Td>
               <Td>1.52*15m</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Durability</Td>
               <Td>Superior</Td>
               <Td>Superior</Td>
@@ -119,7 +119,7 @@ const ComparisonTable = () => {
               <Td>Very Good</Td>
               <Td>Very Good</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Stain Resistance</Td>
               <Td>Excellent</Td>
               <Td>Excellent</Td>
@@ -143,7 +143,7 @@ const ComparisonTable = () => {
               <Td>&ge; 00%</Td>
               <Td>&ge; 00%</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Elongation Rate at Break</Td>
               <Td>&ge; 296%</Td>
               <Td>&ge; 296%</Td>
@@ -165,7 +165,7 @@ const ComparisonTable = () => {
               <Td>3 Years</Td>
               <Td>3 Years</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Anti-Yellowing Guarantee</Td>
               <Td>Yes</Td>
               <Td>Yes</Td>
@@ -187,7 +187,7 @@ const ComparisonTable = () => {
               <Td>&ge; 23.00 N/25mm</Td>
               <Td>&ge; 23.00 N/25mm</Td>
             </Tr>
-            <Tr bg="gray.100">
+            <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Tensile Strength</Td>
               <Td>&ge; 24 Mpa</Td>
               <Td>&ge; 24 Mpa</Td>

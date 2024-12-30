@@ -623,7 +623,7 @@ const ProductsTab = () => {
                           py={{ base: 3, md: 6 }}
                           fontSize={{ base: "11px", lg:'14px' }}
                         >
-                          Technical Data Sheet
+                          {product?.title == "CAMIO TPH Color Gloss"?"Color Palette":"Technical Data Sheet"}
                         </Tab>
                       </TabList>
                       <TabPanels

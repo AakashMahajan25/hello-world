@@ -159,6 +159,14 @@ export default function AdminLayout({ children }) {
                 <span className="flex-1 ms-3 whitespace-nowrap">Retailer Warranty</span>
               </Link>
             </li>
+            <li>
+              <Link href="/admin/inquiries" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/retailer-warranty' ? 'bg-gray-700' : ''}`}>
+                <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5C3.346 4 2 5.346 2 7v2h20V7c0-1.654-1.346-3-3-3zM2 19c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-8H2v8zm6-6h8a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2z"/>
+                </svg>
+                <span className="flex-1 ms-3 whitespace-nowrap">Inquiries</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </aside>
