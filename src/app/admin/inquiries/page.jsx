@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { 
   Table, Thead, Tbody, Tr, Th, Td, TableContainer, 
-  Box, Button, Input, Spinner, Text 
+  Box, Button, Input, Spinner, Text, Heading
 } from "@chakra-ui/react";
 import axios from "axios";
 
@@ -20,9 +20,19 @@ const Page = () => {
       const response = await axios.get(
         `/api/inquiries?page=${currentPage}&search=${searchQuery}`
       );
-      setData(response.data.data);
-      setPage(response.data.page);
-      setTotalPages(response.data.totalPages);
+      if (searchQuery) {
+        const filteredData = response.data.data.filter(item => 
+          Object.values(item).some(value => 
+            value && value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        );
+        setData(filteredData);
+        setTotalPages(Math.ceil(filteredData.length / 10));
+      } else {
+        setData(response.data.data);
+        setPage(response.data.page);
+        setTotalPages(response.data.totalPages);
+      }
       setLoading(false);
     } catch (err) {
       setError("Failed to fetch data.");
@@ -49,9 +59,9 @@ const Page = () => {
 
   return (
     <Box p={4} color={'white'}>
-      <Text fontSize="2xl" mb={4}>Inquiries</Text>
+      <Heading mb={6} color="gray.100">Inquiries</Heading>
       <Input 
-        placeholder="Search by name, phone, or purpose" 
+        placeholder="Search anything..." 
         value={search} 
         onChange={handleSearch} 
         mb={4} 

@@ -33,6 +33,7 @@ const Page = () => {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
+  const [globalFilter, setGlobalFilter] = useState('');
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -135,7 +136,21 @@ const Page = () => {
       sorting,
       columnFilters,
       columnVisibility,
-    }
+      globalFilter,
+    },
+    onGlobalFilterChange: setGlobalFilter,
+    globalFilterFn: (row, columnId, filterValue) => {
+      const searchValue = filterValue.toLowerCase();
+      const values = [
+        row.getValue("name"),
+        row.getValue("email"),
+        row.getValue("phoneNumber"),
+        row.getValue("subject"),
+        row.getValue("message"),
+      ].map(val => val?.toString().toLowerCase() || '');
+      
+      return values.some(val => val.includes(searchValue));
+    },
   });
 
   return (
@@ -144,11 +159,9 @@ const Page = () => {
 
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter by name..."
-          value={(table.getColumn("name")?.getFilterValue() ?? "")}
-          onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
-          }
+          placeholder="Search all fields..."
+          value={globalFilter ?? ""}
+          onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm"
           color="gray.200"
         />

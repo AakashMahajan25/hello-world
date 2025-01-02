@@ -51,7 +51,7 @@ export async function POST(request) {
     // Log database operation
     console.log('Attempting to save warranty data...');
 
-    const db = client.db(process.env.MONGODB_DB);
+    const db = client.db("camio-ppf");
     const warrantyCollection = db.collection('warranties');
 
     // Insert into database

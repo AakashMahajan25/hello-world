@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Text, Heading, VStack, HStack, Link, Divider } from "@chakra-ui/react";
-import { FaHeart } from "react-icons/fa";
 
 const TermsAndWarrantyPage = () => {
   return (

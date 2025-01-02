@@ -136,27 +136,11 @@ export default function AdminLayout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="/admin/detailers" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/detailers' ? 'bg-gray-700' : ''}`}>
-                <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                  <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Detailers</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/inhouse-warranty" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/inhouse-warranty' ? 'bg-gray-700' : ''}`}>
-                <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.995 6.9a.998.998 0 0 0-.548-.795l-8-4a1 1 0 0 0-.895 0l-8 4a1.002 1.002 0 0 0-.547.795c-.011.107-.961 10.767 8.589 15.014a.987.987 0 0 0 .812 0c9.55-4.247 8.6-14.906 8.589-15.014zM12 19.897V12H5.51a15.473 15.473 0 0 1-.544-4.365L12 4.118V12h6.46c-.759 2.74-2.498 5.979-6.46 7.897z"/>
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Inhouse Warranty</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/retailer-warranty" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/retailer-warranty' ? 'bg-gray-700' : ''}`}>
+              <Link href="/admin/warranties" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/retailer-warranty' ? 'bg-gray-700' : ''}`}>
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5C3.346 4 2 5.346 2 7v2h20V7c0-1.654-1.346-3-3-3zM2 19c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-8H2v8zm6-6h8a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2z"/>
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Retailer Warranty</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">Warranties</span>
               </Link>
             </li>
             <li>
