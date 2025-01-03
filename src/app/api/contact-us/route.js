@@ -1,10 +1,14 @@
 import { MongoClient } from 'mongodb';
 import { NextResponse } from 'next/server';
+import { verifyToken } from '@/utils/authUtils';
 
 const uri = process.env.MONGODB_URI;
 
-export async function GET() {
+export async function GET(request) {
     try {
+        // Verify token
+        verifyToken(request);
+
         // Connect to MongoDB
         const client = await MongoClient.connect(uri);
         const db = client.db('camio-ppf');
@@ -18,6 +22,9 @@ export async function GET() {
         return NextResponse.json(contacts, { status: 200 });
 
     } catch (error) {
+        if (error.message === 'No token provided' || error.message === 'Invalid token') {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
         console.error('Error fetching contacts:', error);
         return NextResponse.json(
             { error: 'Failed to fetch contacts' },
@@ -28,6 +35,12 @@ export async function GET() {
 
 export async function POST(request) {
     try {
+        // Add token to response
+        const response = await request.json();
+        const headers = {
+            'Authorization': `Bearer ${VALID_TOKEN}`
+        };
+        
         // Parse the request body
         const { name, email, phone, message, subject } = await request.json();
 
@@ -70,7 +83,10 @@ export async function POST(request) {
 
         return NextResponse.json(
             { message: 'Contact form submitted successfully' },
-            { status: 201 }
+            { 
+                status: 201,
+                headers
+            }
         );
 
     } catch (error) {

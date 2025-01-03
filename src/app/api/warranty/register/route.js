@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { MongoClient } from 'mongodb';
+import { VALID_TOKEN } from '@/utils/authUtils';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env.local');
@@ -59,13 +60,23 @@ export async function POST(request) {
     
     console.log('Warranty registered with ID:', result.insertedId);
 
+    // Add token to response
+    const headers = {
+      'Authorization': `Bearer ${VALID_TOKEN}`
+    };
+
     return NextResponse.json(
       { 
         success: true, 
         message: 'Warranty registration submitted successfully',
         warrantyId: warrantyData.warrantyId
       },
-      { status: 201 }
+      { 
+        status: 201,
+        headers: {
+          'Authorization': `Bearer ${VALID_TOKEN}`
+        }
+      }
     );
 
   } catch (error) {
