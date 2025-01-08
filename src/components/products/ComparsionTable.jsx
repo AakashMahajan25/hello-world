@@ -30,15 +30,15 @@ const ComparisonTable = () => {
         <Table variant="striped" >
           <Thead bg="gray.200">
             <Tr>
-              <Th color="black">Feature</Th>
-              <Th color="black">TPU Clear Gloss</Th>
-              <Th color="black">TPU Black Gloss</Th>
-              <Th color="black">TPU Clear Matte</Th>
-              <Th color="black">TPU Black Matte</Th>
-              <Th color="black">TPH Clear Gloss</Th>
-              <Th color="black">TPH Clear Matte</Th>
-              <Th color="black">TPH Black Gloss</Th>
-              <Th color="black">TPH Color Gloss</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>Feature</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPU Clear Gloss</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPU Black Gloss</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPU Clear Matte</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPU Black Matte</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPH Clear Gloss</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPH Clear Matte</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPH Black Gloss</Th>
+              <Th color="black" fontSize={{lg:""}} py={{lg:4}}>TPH Color Gloss</Th>
             </Tr>
           </Thead>
           <Tbody>
