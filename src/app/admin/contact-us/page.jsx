@@ -26,6 +26,8 @@ import {
   getFilteredRowModel
 } from '@tanstack/react-table';
 import { useRouter } from 'next/navigation';
+import TableLoader from '@/components/TableLoader';
+import { fetchWithAuth } from '@/utils/fetchWithAuth';
 
 const Page = () => {
   const router = useRouter();
@@ -34,18 +36,23 @@ const Page = () => {
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await fetch('/api/contact-us');
+        setLoading(true);
+        const response = await fetchWithAuth('/api/contact-us');
         if (!response.ok) {
           throw new Error('Failed to fetch contacts');
         }
         const data = await response.json();
         setContacts(data);
       } catch (error) {
-        console.error('Error fetching contacts:', error);
+        console.error('Error:', error);
+        throw error;
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -152,6 +159,13 @@ const Page = () => {
       return values.some(val => val.includes(searchValue));
     },
   });
+
+  if (loading) return (
+    <Box p={8}>
+      <Heading mb={6} color="gray.100">Contact Form Submissions</Heading>
+      <TableLoader />
+    </Box>
+  );
 
   return (
     <Box p={8}>

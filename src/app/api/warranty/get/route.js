@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
+import { verifyToken } from '@/utils/authUtils';
 
 const uri = process.env.MONGODB_URI;
 
@@ -7,6 +8,9 @@ export async function GET(request) {
   let client;
   
   try {
+    // Verify token first
+    verifyToken(request);
+
     // Parse query parameters for pagination, sorting, and filtering
     const { 
       search, 
@@ -68,6 +72,9 @@ export async function GET(request) {
     });
 
   } catch (error) {
+    if (error.message === 'No token provided' || error.message === 'Invalid token') {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     console.error("Error retrieving warranties:", error);
     return NextResponse.json(
       { 

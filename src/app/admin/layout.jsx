@@ -146,7 +146,8 @@ export default function AdminLayout({ children }) {
             <li>
               <Link href="/admin/inquiries" className={`flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-700 group ${pathname === '/admin/retailer-warranty' ? 'bg-gray-700' : ''}`}>
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5C3.346 4 2 5.346 2 7v2h20V7c0-1.654-1.346-3-3-3zM2 19c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-8H2v8zm6-6h8a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2z"/>
+                  <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                  <path d="M11 16h2v2h-2zm1-10c-2.206 0-4 1.794-4 4h2c0-1.103.897-2 2-2s2 .897 2 2c0 .808-.503 1.433-1.222 1.685-.719.253-1.778.692-1.778 2.315h2c0-.808.503-1.433 1.222-1.685.719-.253 1.778-.692 1.778-2.315 0-2.206-1.794-4-4-4z"/>
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Inquiries</span>
               </Link>
