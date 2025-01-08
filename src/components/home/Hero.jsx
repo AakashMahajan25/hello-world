@@ -95,9 +95,9 @@ const Hero = () => {
           spacing={{ md: 8 }}
           gap={4}
         >
-          <Box>
+          {/* <Box>
             <Image src={roll} width={1000} height={1000} className="h-[450px] w-[120px] hidden md:block" />
-          </Box>
+          </Box> */}
           {/* Image Section */}
           <Box
             w="full"
