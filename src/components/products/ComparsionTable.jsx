@@ -28,17 +28,17 @@ const ComparisonTable = () => {
       </Heading>
       <TableContainer m={{base:2, lg:10}} maxW={{base:'100vw',lg:'98vw'}}>
         <Table variant="striped" >
-          <Thead bg="gray">
+          <Thead bg="gray.200">
             <Tr>
-              <Th color="white">Feature</Th>
-              <Th color="white">TPU Clear Gloss</Th>
-              <Th color="white">TPU Black Gloss</Th>
-              <Th color="white">TPU Clear Matte</Th>
-              <Th color="white">TPU Black Matte</Th>
-              <Th color="white">TPH Clear Gloss</Th>
-              <Th color="white">TPH Clear Matte</Th>
-              <Th color="white">TPH Black Gloss</Th>
-              <Th color="white">TPH Color Gloss</Th>
+              <Th color="black">Feature</Th>
+              <Th color="black">TPU Clear Gloss</Th>
+              <Th color="black">TPU Black Gloss</Th>
+              <Th color="black">TPU Clear Matte</Th>
+              <Th color="black">TPU Black Matte</Th>
+              <Th color="black">TPH Clear Gloss</Th>
+              <Th color="black">TPH Clear Matte</Th>
+              <Th color="black">TPH Black Gloss</Th>
+              <Th color="black">TPH Color Gloss</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -64,7 +64,7 @@ const ComparisonTable = () => {
               <Td>Yes</Td>
               <Td>Yes</Td>
             </Tr>
-            <Tr bg="white">
+            <Tr bg="white" >
               <Td fontWeight={"semibold"}>Hydrophobic Properties</Td>
               <Td>Yes</Td>
               <Td>Yes</Td>

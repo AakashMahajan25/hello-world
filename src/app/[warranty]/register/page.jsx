@@ -293,7 +293,7 @@ export default function WarrantyRegistration() {
               width="full"
               mt={4}
             >
-              Submit Registration
+              Register E-Warranty
             </Button>
           </VStack>
         </Box>
