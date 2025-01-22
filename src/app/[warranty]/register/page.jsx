@@ -23,7 +23,8 @@ import {
   ModalFooter,
   useDisclosure,
   Badge,
-  Flex
+  Flex,
+  Collapse,
 } from "@chakra-ui/react";
 
 export default function WarrantyRegistration() {
@@ -59,7 +60,7 @@ export default function WarrantyRegistration() {
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
-    console.log(selectedCategory)
+    console.log(selectedCategory);
     if (selectedCategory.includes("tpu")) {
       setWarrantyDuration("5 years");
     } else if (selectedCategory.includes("tph")) {
@@ -176,21 +177,42 @@ export default function WarrantyRegistration() {
             {/* PPF Category */}
             <FormControl isRequired>
               <FormLabel>PPF Category</FormLabel>
-              <Flex align="center" justify="space-between" gap={4} direction={{base:'column', md:'row'}}>
+              <Flex
+                align="center"
+                justify="space-between"
+                gap={4}
+                direction={{ base: "column", md: "row" }}
+              >
                 <Select
                   name="ppfCategory"
                   placeholder="Select PPF category"
                   onChange={handleCategoryChange}
                   flex="1" // Ensures it takes up available space
                 >
-                  <option value="camio-tpu-clear-gloss">CAMIO TPU Clear Gloss</option>
-                  <option value="camio-tpu-black-gloss">CAMIO TPU Black Gloss</option>
-                  <option value="camio-tpu-clear-matte">CAMIO TPU Clear Matte</option>
-                  <option value="camio-tpu-black-matte">CAMIO TPU Black Matte</option>
-                  <option value="camio-tph-clear-gloss">Camio TPH Clear Gloss</option>
-                  <option value="camio-tph-clear-matte">Camio TPH Clear Matte</option>
-                  <option value="camio-tph-color-gloss">Camio TPH Color Gloss</option>
-                  <option value="camio-tph-black-gloss">Camio TPH Black Gloss</option>
+                  <option value="camio-tpu-clear-gloss">
+                    CAMIO TPU Clear Gloss
+                  </option>
+                  <option value="camio-tpu-black-gloss">
+                    CAMIO TPU Black Gloss
+                  </option>
+                  <option value="camio-tpu-clear-matte">
+                    CAMIO TPU Clear Matte
+                  </option>
+                  <option value="camio-tpu-black-matte">
+                    CAMIO TPU Black Matte
+                  </option>
+                  <option value="camio-tph-clear-gloss">
+                    Camio TPH Clear Gloss
+                  </option>
+                  <option value="camio-tph-clear-matte">
+                    Camio TPH Clear Matte
+                  </option>
+                  <option value="camio-tph-color-gloss">
+                    Camio TPH Color Gloss
+                  </option>
+                  <option value="camio-tph-black-gloss">
+                    Camio TPH Black Gloss
+                  </option>
                 </Select>
                 <Flex align="center" gap={2}>
                   <Text fontSize="sm" fontWeight="medium" color="gray.600">
@@ -203,8 +225,6 @@ export default function WarrantyRegistration() {
               </Flex>
             </FormControl>
 
-
-          
             {/* Image Upload */}
             <FormControl isRequired>
               <FormLabel>Car Image with PPF Roll</FormLabel>
@@ -298,6 +318,181 @@ export default function WarrantyRegistration() {
           </VStack>
         </Box>
       </VStack>
+
+      {/* Warranty Policies */}
+      <Box mt={16} mx={{ base: "2", sm: "8" }}>
+        <Heading textAlign={"center"} fontSize={"26px"}>
+          E Warranty Policies
+        </Heading>
+        <Text fontSize="14px" mt={4}>
+          <strong>Warranty Coverage:</strong>
+          <br />
+          CAMIO PPF ensures the highest quality standards and offers the
+          following protections through the authorized dealer or installer:
+          <ol
+            style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+            className="pt-2"
+          >
+            <li>
+              <strong>Durability:</strong> Film will not crack, peel, or bubble
+              under proper maintenance.
+            </li>
+            <li>
+              <strong>Adhesion:</strong> No blistering, bubbling, or
+              delaminating under normal conditions.
+            </li>
+            <li>
+              <strong>Appearance:</strong> Protection against discoloration or
+              staining over time.
+            </li>
+          </ol>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Warranty Period:</strong>
+          <ul style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
+            <li>TPU Series: 5 years from the installation date.</li>
+            <li>TPH Series: 3 years from the installation date.</li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Conditions for Validity:</strong>
+          <ul style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+            className="pt-2">
+            <li>
+              Warranty is non-transferable and applicable only to the original
+              purchaser.
+            </li>
+            <li>
+              Coverage is valid only for installations on OEM-painted surfaces.
+            </li>
+            <li>
+              Warranty is void if the vehicle surface is repainted or if the
+              film is removed, tampered with, or abused.
+            </li>
+            <li>
+              CAMIO PPF must be installed by a certified professional using
+              recommended techniques and stored appropriately before
+              application.
+            </li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Liability for Warranty Claims:</strong>
+          <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
+            <li>
+              CAMIO PPF, as a brand, is not directly liable for warranty claims.
+            </li>
+            <li>
+              The authorized dealer or installer who applied the film is fully
+              responsible for addressing and resolving warranty claims.
+            </li>
+            <li>
+              Any material or product replacement due to defects will be handled
+              by the dealer or installer. Labour costs or additional warranties
+              offered by dealers are not covered under this policy.
+            </li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>What Is Covered:</strong>
+          <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
+            <li>Staining or fading due to environmental exposure.</li>
+            <li>
+              Delamination, blistering, or bubbling due to material failure.
+            </li>
+            <li>Cracks or crazing caused by manufacturing defects.</li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>What Is Not Covered:</strong>
+          <ul style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+            className="pt-2">
+            <li>
+              Damage caused by improper care, accidents, or misuse (e.g.,
+              sandstorms, hail, falling objects).
+            </li>
+            <li>
+              Scratches, dents, or wear resulting from collisions, vandalism, or
+              negligence.
+            </li>
+            <li>Use of abrasive cleaners, chemicals, or caustic materials.</li>
+            <li>
+              Damage from extreme thermal conditions or non-automotive
+              applications.
+            </li>
+            <li>
+              Water spots or minor aesthetic imperfections like stains or rail
+              dust.
+            </li>
+            <li>
+              Installations on non-OEM surfaces or by unauthorized
+              professionals.
+            </li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Claim Process:</strong>
+          <ul style={{ listStyleType: "decimal", paddingLeft: "20px" }}
+            className="pt-2">
+            <li>
+              Claims must be initiated through the authorized CAMIO PPF
+              installer or dealer.
+            </li>
+            <li>
+              Submit proof of purchase, warranty certificate, and installation
+              details.
+            </li>
+            <li>
+              Upon verification, the authorized dealer will replace the
+              defective material (labour costs not included).
+            </li>
+            <li>
+              CAMIO PPF will not entertain claims directly and is not
+              responsible for any additional warranties offered by dealers or
+              installers.
+            </li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Limitation of Liability:</strong>
+          CAMIO PPF’s liability is limited to providing the product. The company
+          is not responsible for:
+          <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
+            <li>Labour costs associated with removal or reinstallation.</li>
+            <li>
+              Consequential damages, loss of use, or any incidental losses.
+            </li>
+            <li>Claims arising from improper installation or maintenance.</li>
+          </ul>
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Warranty Disclaimer:</strong>
+          CAMIO PPF does not authorize modifications or extensions to this
+          warranty. Any misuse, intentional or unintentional damage, or failure
+          to follow recommended care instructions voids the warranty.
+        </Text>
+
+        <Text fontSize="14px" mt={4}>
+          <strong>Care Instructions:</strong>
+          To maintain the warranty, follow proper care guidelines:
+          <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
+            <li>Clean the film with non-abrasive, pH-neutral products.</li>
+            <li>
+              Avoid harsh chemicals, solvents, or excessive pressure during
+              washing.
+            </li>
+            <li>Protect the film from sharp objects and intentional damage.</li>
+          </ul>
+        </Text>
+      </Box>
 
       {/* Warranty ID Modal */}
       <Modal
