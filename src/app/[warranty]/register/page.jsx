@@ -461,7 +461,7 @@ export default function WarrantyRegistration() {
         </Text>
 
         <Text fontSize="14px" mt={4}>
-          <strong>Limitation of Liability:</strong>
+          <strong>Limitation of Liability: </strong>
           CAMIO PPF’s liability is limited to providing the product. The company
           is not responsible for:
           <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
@@ -474,14 +474,14 @@ export default function WarrantyRegistration() {
         </Text>
 
         <Text fontSize="14px" mt={4}>
-          <strong>Warranty Disclaimer:</strong>
+          <strong>Warranty Disclaimer: </strong>
           CAMIO PPF does not authorize modifications or extensions to this
           warranty. Any misuse, intentional or unintentional damage, or failure
           to follow recommended care instructions voids the warranty.
         </Text>
 
         <Text fontSize="14px" mt={4}>
-          <strong>Care Instructions:</strong>
+          <strong>Care Instructions: </strong>
           To maintain the warranty, follow proper care guidelines:
           <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
             <li>Clean the film with non-abrasive, pH-neutral products.</li>
