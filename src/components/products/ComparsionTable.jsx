@@ -131,7 +131,7 @@ const ComparisonTable = () => {
               <Td>Good</Td>
               <Td>Good</Td>
             </Tr>
-            <Tr bg="gray.50">
+            {/* <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>
                 Elongation Rate at Break of Coating
               </Td>
@@ -143,17 +143,17 @@ const ComparisonTable = () => {
               <Td>&ge; 00%</Td>
               <Td>&ge; 00%</Td>
               <Td>&ge; 00%</Td>
-            </Tr>
+            </Tr> */}
             <Tr bg="gray.50">
-              <Td fontWeight={"semibold"}>Elongation Rate at Break</Td>
-              <Td>&ge; 296%</Td>
-              <Td>&ge; 296%</Td>
-              <Td>&ge; 296%</Td>
-              <Td>&ge; 296%</Td>
-              <Td>&ge; 00%</Td>
-              <Td>&ge; 00%</Td>
-              <Td>&ge; 00%</Td>
-              <Td>&ge; 00%</Td>
+              <Td fontWeight={"semibold"}>Elongation Rate at Break <span>(%)</span></Td>
+              <Td>135(+-10)</Td>
+              <Td>115(+-10)</Td>
+              <Td>125(+-10)</Td>
+              <Td>115(+-10)</Td>
+              <Td>115(+-10)</Td>
+              <Td>105(+-10)</Td>
+              <Td>115(+-10)</Td>
+              <Td>115(+-10)</Td>
             </Tr>
             <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Warranty</Td>
@@ -178,26 +178,26 @@ const ComparisonTable = () => {
               <Td>Moderate</Td>
             </Tr>
             <Tr bg="gray.50">
-              <Td fontWeight={"semibold"}>Peeling Force</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
-              <Td>&ge; 23.00 N/25mm</Td>
+              <Td fontWeight={"semibold"}>Peeling Force <span>(kgf/inch)</span> </Td>
+              <Td>1.6(+-0.2)</Td>
+              <Td>1.6(+-0.2)</Td>
+              <Td>1.5(+-0.2)</Td>
+              <Td>1.5(+-0.2)</Td>
+              <Td>1.4(+-0.2)</Td>
+              <Td>1.4(+-0.2)</Td>
+              <Td>1.4(+-0.2)</Td>
+              <Td>1.4(+-0.2)</Td>
             </Tr>
             <Tr bg="gray.50">
-              <Td fontWeight={"semibold"}>Tensile Strength</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
-              <Td>&ge; 24 Mpa</Td>
+              <Td fontWeight={"semibold"}>Tensile Strength (kgf/inch) </Td>
+              <Td>3.0(+-0.3)</Td>
+              <Td>2.5(+-0.3)</Td>
+              <Td>2.9(+-0.3)</Td>
+              <Td>2.5(+-0.3)</Td>
+              <Td>1.8(+-0.3)</Td>
+              <Td>1.6(+-0.3)</Td>
+              <Td>2.5(+-0.3)</Td>
+              <Td>2.5(+-0.3)</Td>
             </Tr>
             <Tr bg="gray.50">
               <Td fontWeight={"semibold"}>Ideal for Application</Td>

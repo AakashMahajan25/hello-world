@@ -2,6 +2,7 @@ import React from "react";
 import { Stack, Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 import { HiOutlineCheckCircle } from "react-icons/hi";
 import Image from "next/image";
+import cartph from "@/assets/tphClearGlossCrop.jpg"
 
 const ProductProp = ({
   imageSrc,
@@ -22,7 +23,7 @@ const ProductProp = ({
           {/* Image Section */}
           <div className="p-4 flex justify-center items-center w-full md:w-1/2">
             <Image
-              src={imageSrc}
+              src={cartph}
               alt="Luxury SUV with protection film"
               width={560}
               height={446}
