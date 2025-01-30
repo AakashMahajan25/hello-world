@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Button2 from "../props/Button2";
 import Link from "next/link";
-import roll from '@/assets/roll.png'
+import roll from '@/assets/packaging.jpg'
 import car1 from "../../assets/herocar.png";
 import car2 from "../../assets/herocar2.png";
 import car3 from "../../assets/herocar3.png";
@@ -95,9 +95,9 @@ const Hero = () => {
           spacing={{ md: 8 }}
           gap={4}
         >
-          {/* <Box>
-            <Image src={roll} width={1000} height={1000} className="h-[450px] w-[120px] hidden md:block" />
-          </Box> */}
+          <Box>
+            <Image src={roll} width={1000} height={1000} className="h-[450px] w-[580px] hidden md:block" />
+          </Box>
           {/* Image Section */}
           <Box
             w="full"
