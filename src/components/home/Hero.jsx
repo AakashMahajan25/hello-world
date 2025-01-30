@@ -96,7 +96,7 @@ const Hero = () => {
           gap={4}
         >
           <Box>
-            <Image src={roll} width={1000} height={1000} className="h-[450px] w-[580px] hidden md:block" />
+            <Image src={roll} alt="Hero image" width={1000} height={1000} className="h-[450px] w-[580px] hidden md:block" />
           </Box>
           {/* Image Section */}
           <Box
