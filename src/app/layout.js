@@ -147,6 +147,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="8BBCQjlVUQwQR3e57lXgew" async></script>
       </head>
       <body className={`${sora.className} antialiased overflow-x-hidden relative`}>
         <Providers>
