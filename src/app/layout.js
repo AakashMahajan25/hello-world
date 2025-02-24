@@ -1,5 +1,6 @@
 'use client';
 import "./globals.css";
+// import logo from "@/assets/logo.png"
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
@@ -23,148 +24,94 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
-import axios from "axios";
-
+import React, { useState, useEffect } from "react";
 
 const sora = Sora({ subsets: ["latin"] });
-
-
 
 export default function RootLayout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const [purpose, setPurpose] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [businessType, setBusinessType] = useState("");
-  const [inquiryMessage, setInquiryMessage] = useState("");
-
-  const initialRef = React.useRef(null);
-  const finalRef = React.useRef(null);
-  const metadata = {
-    title: "CAMIO PPF – Best Paint Protection Film (PPF) in Delhi | Self-Healing, Ultra Gloss, Durable",
-    description: "Protect your vehicle's paint with CAMIO's top-tier Paint Protection Film (PPF) in Delhi. Our self-healing, non-yellowing films offer superior defense against scratches, road debris, and environmental elements, ensuring a flawless, high-gloss finish. Explore customizable options with a 5-year warranty. We are the best PPF provider in Delhi NCR region",
-  };
-
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/admin");
 
-  const validateForm = () => {
-    if (!name.trim() || !phone.trim() || !location.trim() || !purpose.trim()) {
-      toast({
-        title: "Please fill all required fields",
-        status: "warning",
-        duration: 2000,
-        isClosable: true,
-      });
-      return false;
-    }
-
-    if (email && !/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-      toast({
-        title: "Invalid email address",
-        status: "error",
-        duration: 2000,
-        isClosable: true,
-      });
-      return false;
-    }
-
-    if (!/^[+]?\d{10,15}$/.test(phone)) {
-      toast({
-        title: "Invalid phone number",
-        status: "error",
-        duration: 2000,
-        isClosable: true,
-      });
-      return false;
-    }
-
-    return true;
+  const metadata = {
+    title: "CAMIO PPF - Paint Protection Film in Delhi | Self-Healing PPF",
+    description:
+      "Premium Paint Protection Film (PPF) services in Delhi. Self-healing, non-yellowing films protect against scratches and debris. 5-year warranty available.",
+    url: `https://yourwebsite.com${pathname}`,
+    image: "https://ibb.co/spTKTmgg", 
   };
 
-  const handleSubmit = async () => {
-    if (!validateForm()) return;
-
-    const formData = {
-      name: name.trim(),
-      email: email.trim() || null,
-      phone: phone.trim(),
-      location: location.trim(),
-      purpose: purpose.trim(),
-      businessName: businessName.trim() || null,
-      businessType: businessType.trim() || null,
-      inquiryMessage: inquiryMessage.trim() || null,
-    };
-
-    try {
-      const response = await axios.post("/api/inquiries", formData);
-
-      if (response.status === 200 || response.status === 201) {
-        toast({
-          title: "Form submitted successfully!",
-          description: "We have received your inquiry.",
-          status: "success",
-          duration: 2000,
-          isClosable: true,
-        });
-
-        // Reset form fields
-        setName("");
-        setEmail("");
-        setPhone("");
-        setLocation("");
-        setPurpose("");
-        setBusinessName("");
-        setBusinessType("");
-        setInquiryMessage("");
-
-        onClose();
-      } else {
-        throw new Error("Unexpected response from the server");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-
-      toast({
-        title: "Submission failed.",
-        description: "Please try again later.",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CAMIO PPF",
+    "url": metadata.url,
+    "logo": "https://ibb.co/spTKTmgg", 
+    "description": metadata.description,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91XXXXXXXXXX",
+      "contactType": "customer service",
+    },
   };
-
 
   return (
     <html lang="en">
       <head>
+        {/* Basic SEO Meta Tags */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="8BBCQjlVUQwQR3e57lXgew" async></script>
+
+        {/* Canonical Tag */}
+        <link rel="canonical" href={metadata.url} />
+
+        {/* Open Graph Meta Tags (For Social Media) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:url" content={metadata.url} />
+        <meta property="og:image" content={metadata.image} />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content={metadata.image} />
+
+        {/* Favicon & Theme Color */}
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#000000" />
+
+        {/* Structured Data (JSON-LD for SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+
+        {/* Ahrefs Analytics Script */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="8BBCQjlVUQwQR3e57lXgew"
+          async
+        ></script>
       </head>
       <body className={`${sora.className} antialiased overflow-x-hidden relative`}>
         <Providers>
           {!isAdminRoute && <Navbar />}
-          {isAdminRoute ? '' : <button
-            onClick={onOpen}
-            className=" text-3xl lg:text-5xl fixed right-10 bottom-10 cursor-pointer text-yellow-400"
-          >
-            <IoChatbubbleEllipsesOutline />
-          </button>}
+          {!isAdminRoute && (
+            <button
+              onClick={onOpen}
+              className="text-3xl lg:text-5xl fixed right-10 bottom-10 cursor-pointer text-yellow-400"
+            >
+              <IoChatbubbleEllipsesOutline />
+            </button>
+          )}
 
-          <Modal
-            initialFocusRef={initialRef}
-            finalFocusRef={finalRef}
-            isOpen={isOpen}
-            onClose={onClose}
-          >
+          {/* Inquiry Modal */}
+          <Modal initialFocusRef={React.useRef(null)} finalFocusRef={React.useRef(null)} isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>Inquiry Form</ModalHeader>
@@ -172,50 +119,27 @@ export default function RootLayout({ children }) {
               <ModalBody pb={6}>
                 <FormControl isRequired>
                   <FormLabel>Name</FormLabel>
-                  <Input
-                    ref={initialRef}
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
+                  <Input placeholder="Your Name" />
                 </FormControl>
 
                 <FormControl mt={4}>
                   <FormLabel>Email Address</FormLabel>
-                  <Input
-                    placeholder="Your Email (Optional)"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+                  <Input placeholder="Your Email (Optional)" type="email" />
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Phone Number</FormLabel>
-                  <Input
-                    placeholder="Phone Number"
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
+                  <Input placeholder="Phone Number" type="tel" />
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Location</FormLabel>
-                  <Input
-                    placeholder="City, State"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                  />
+                  <Input placeholder="City, State" />
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Purpose of Inquiry</FormLabel>
-                  <Select
-                    placeholder="Select an option"
-                    value={purpose}
-                    onChange={(e) => setPurpose(e.target.value)}
-                  >
+                  <Select placeholder="Select an option">
                     <option value="dealer">I want to become a dealer</option>
                     <option value="buy">I want to buy CAMIO PPF for my vehicle</option>
                     <option value="complaint">I have a product complaint or issue</option>
@@ -223,45 +147,14 @@ export default function RootLayout({ children }) {
                   </Select>
                 </FormControl>
 
-                {purpose === "dealer" && (
-                  <>
-                    <FormControl mt={4}>
-                      <FormLabel>Business Name</FormLabel>
-                      <Input
-                        placeholder="Your Business Name"
-                        value={businessName}
-                        onChange={(e) => setBusinessName(e.target.value)}
-                      />
-                    </FormControl>
-
-                    <FormControl mt={4}>
-                      <FormLabel>Type of Business</FormLabel>
-                      <Select
-                        placeholder="Select type"
-                        value={businessType}
-                        onChange={(e) => setBusinessType(e.target.value)}
-                      >
-                        <option value="detailing">Detailing Store</option>
-                        <option value="wholesaler">Wholesaler</option>
-                        <option value="distributor">Distributor</option>
-                        <option value="others">Others</option>
-                      </Select>
-                    </FormControl>
-                  </>
-                )}
-
                 <FormControl mt={4}>
                   <FormLabel>Tell us about your inquiry</FormLabel>
-                  <Textarea
-                    placeholder="Write your message here"
-                    value={inquiryMessage}
-                    onChange={(e) => setInquiryMessage(e.target.value)}
-                  />
+                  <Textarea placeholder="Write your message here" />
                 </FormControl>
               </ModalBody>
 
               <ModalFooter>
-                <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+                <Button colorScheme="blue" mr={3}>
                   Submit
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
