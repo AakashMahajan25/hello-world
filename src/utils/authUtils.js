@@ -1,4 +1,4 @@
-const VALID_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJ2ZXJpZmllZCJ9.RdXtVP08x25GD7lnvp_jxR4__qkBPa87QouWRvdmn00";
+export const VALID_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJ2ZXJpZmllZCJ9.RdXtVP08x25GD7lnvp_jxR4__qkBPa87QouWRvdmn00";
 
 export function verifyToken(request) {
   const token = request.headers.get('authorization')?.replace('Bearer ', '');
@@ -13,3 +13,4 @@ export function verifyToken(request) {
   
   return true;
 } 
+
