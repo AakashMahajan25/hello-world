@@ -4,35 +4,6 @@ import { verifyToken } from '@/utils/authUtils';
 
 const uri = process.env.MONGODB_URI;
 
-export async function GET(request) {
-    try {
-        // Verify token
-        verifyToken(request);
-
-        // Connect to MongoDB
-        const client = await MongoClient.connect(uri);
-        const db = client.db('camio-ppf');
-        
-        // Get all contacts
-        const contacts = await db.collection('contacts').find({}).toArray();
-        
-        // Close connection
-        await client.close();
-
-        return NextResponse.json(contacts, { status: 200 });
-
-    } catch (error) {
-        if (error.message === 'No token provided' || error.message === 'Invalid token') {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        }
-        console.error('Error fetching contacts:', error);
-        return NextResponse.json(
-            { error: 'Failed to fetch contacts' },
-            { status: 500 }
-        );
-    }
-}
-
 export async function POST(request) {
     try {       
         
@@ -88,6 +59,35 @@ export async function POST(request) {
         console.error('Contact form submission error:', error);
         return NextResponse.json(
             { error: 'Failed to submit contact form' },
+            { status: 500 }
+        );
+    }
+}
+
+export async function GET(request) {
+    try {
+        // Verify token
+        verifyToken(request);
+
+        // Connect to MongoDB
+        const client = await MongoClient.connect(uri);
+        const db = client.db('camio-ppf');
+        
+        // Get all contacts
+        const contacts = await db.collection('contacts').find({}).toArray();
+        
+        // Close connection
+        await client.close();
+
+        return NextResponse.json(contacts, { status: 200 });
+
+    } catch (error) {
+        if (error.message === 'No token provided' || error.message === 'Invalid token') {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+        console.error('Error fetching contacts:', error);
+        return NextResponse.json(
+            { error: 'Failed to fetch contacts' },
             { status: 500 }
         );
     }

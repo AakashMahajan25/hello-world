@@ -32,7 +32,7 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
 const Page = () => {
   const router = useRouter();
   const [contacts, setContacts] = useState([]);
-  const [sorting, setSorting] = useState([{ id: 'timestamp', desc: true }]); // Changed to sort by timestamp descending
+  const [sorting, setSorting] = useState([{ id: 'timestamp', desc: false }]); // Changed to ascending
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState('');
@@ -47,8 +47,8 @@ const Page = () => {
           throw new Error('Failed to fetch contacts');
         }
         const data = await response.json();
-        // Sort data by timestamp in descending order using ISO string comparison
-        const sortedData = data.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+        // Sort data by timestamp in ascending order using Date comparison
+        const sortedData = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
         setContacts(sortedData);
       } catch (error) {
         console.error('Error:', error);

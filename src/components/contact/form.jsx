@@ -94,7 +94,7 @@ const ContactForm = () => {
     });
 
     // Basic validation
-    if (!formData.name || !formData.message) {
+    if (!formData.name || !formData.message || !formData.email) {
       toast.update(toastId, {
         title: "Error",
         description: "Please fill in all required fields.",
@@ -105,8 +105,8 @@ const ContactForm = () => {
       return;
     }
 
-    // Optional email validation (only if the email field is filled)
-    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+    // Email validation
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
       toast.update(toastId, {
         title: "Invalid Email",
         description: "Please enter a valid email address.",
@@ -323,6 +323,7 @@ const ContactForm = () => {
                   </FormControl>
 
                   <FormControl
+                    isRequired
                     borderBottom="2px"
                     borderColor="#98A2B3"
                     pb={1}
@@ -432,10 +433,16 @@ const ContactForm = () => {
                   borderBottom="2px"
                   borderColor="#98A2B3"
                   pb={1}
+                  width={["100%", "100%", "100%"]} // Responsive width
                 >
-                  <HStack spacing={2} alignItems="flex-start">
-                    {" "}
-                    <Icon as={FaPen} color="#98A2B3" boxSize={5} mt={3} />
+                  <HStack spacing={[1, 2]} alignItems="flex-start" width="100%">
+                    <Icon 
+                      as={FaPen} 
+                      color="#98A2B3" 
+                      boxSize={[4, 5]} 
+                      mt={[2, 3]} 
+                      display={["none", "block"]} // Hide icon on mobile
+                    />
                     <Textarea
                       name="message"
                       placeholder="Message"
@@ -445,18 +452,20 @@ const ContactForm = () => {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      maxHeight="100px" // Set your desired max height here
-                      resize="none" // Prevent resizing if needed
+                      maxHeight={["80px", "100px"]} // Responsive max height
+                      resize="none"
+                      width="100%"
+                      px={[2, 4]} // Responsive padding
                       sx={{
                         "::placeholder": {
-                          fontSize: "16px",
+                          fontSize: ["14px", "16px"], // Responsive font size
                           fontWeight: 400,
-                          lineHeight: "24px",
+                          lineHeight: ["20px", "24px"], // Responsive line height
                           textAlign: "left",
                           color: "#98A2B3",
                         },
                       }}
-                      flex="1" // Allow the Textarea to take the remaining width
+                      flex="1"
                     />
                   </HStack>
                 </FormControl>
