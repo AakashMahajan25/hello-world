@@ -43,6 +43,7 @@ export default function RootLayout({ children }) {
   const [businessName, setBusinessName] = useState("");
   const [businessType, setBusinessType] = useState("");
   const [inquiryMessage, setInquiryMessage] = useState("");
+  const [isEnquirySubmitting, setIsEnquirySubmitting] = useState(false)
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -91,6 +92,8 @@ export default function RootLayout({ children }) {
   const handleSubmit = async () => {
     if (!validateForm()) return;
 
+    setIsEnquirySubmitting(true)
+
     const formData = {
       name: name.trim(),
       email: email.trim() || null,
@@ -123,13 +126,14 @@ export default function RootLayout({ children }) {
         setBusinessName("");
         setBusinessType("");
         setInquiryMessage("");
-
+        setIsEnquirySubmitting(false)
         onClose();
       } else {
         throw new Error("Unexpected response from the server");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setIsEnquirySubmitting(false)
 
       toast({
         title: "Submission failed.",
@@ -261,7 +265,7 @@ export default function RootLayout({ children }) {
               </ModalBody>
 
               <ModalFooter>
-                <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+                <Button isLoading={isEnquirySubmitting} colorScheme="blue" mr={3} onClick={handleSubmit}>
                   Submit
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
