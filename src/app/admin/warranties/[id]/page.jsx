@@ -11,6 +11,7 @@ import {
   Stack,
   StackDivider,
   Badge,
+  Image,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import { fetchWithAuth } from '@/utils/fetchWithAuth';
@@ -105,6 +106,34 @@ const WarrantyDetails = () => {
                 <Text pt={2} color="gray.300">{warranty.description}</Text>
               </Box>
             )}
+            <Box>
+              <Heading size="xs" color="gray.400">Car Image</Heading>
+              {warranty.carImageUrl ? (
+                <Image 
+                  src={warranty.carImageUrl}
+                  alt="Car Image"
+                  maxW="400px"
+                  mt={2}
+                  borderRadius="md"
+                />
+              ) : (
+                <Text pt={2} color="gray.500" fontStyle="italic">No car image available</Text>
+              )}
+            </Box>
+            <Box>
+              <Heading size="xs" color="gray.400">RC Image</Heading>
+              {warranty.rcImage ? (
+                <Image 
+                  src={warranty.rcImage}
+                  alt="RC Image"
+                  maxW="400px"
+                  mt={2}
+                  borderRadius="md"
+                />
+              ) : (
+                <Text pt={2} color="gray.500" fontStyle="italic">No RC image available</Text>
+              )}
+            </Box>
           </Stack>
         </CardBody>
       </Card>
