@@ -75,7 +75,7 @@ const WarrantyDetails = () => {
         duration: 3000,
       });
 
-      warranty.status = newStatus;
+      router.push('/admin/warranties');
 
     } catch (error) {
       toast({
