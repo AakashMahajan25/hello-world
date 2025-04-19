@@ -47,8 +47,8 @@ const Page = () => {
           throw new Error('Failed to fetch contacts');
         }
         const data = await response.json();
-        // Sort data by timestamp in descending order
-        const sortedData = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        // Sort data by timestamp in descending order using ISO string comparison
+        const sortedData = data.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
         setContacts(sortedData);
       } catch (error) {
         console.error('Error:', error);

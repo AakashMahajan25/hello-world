@@ -43,15 +43,14 @@ export async function POST(request) {
     client.close();
 
     // Add token to response
-    const headers = {
-      'Authorization': `Bearer ${VALID_TOKEN}`
-    };
+    // const headers = {
+    //   'Authorization': `Bearer ${VALID_TOKEN}`
+    // };
 
     return NextResponse.json(
       { message: "Inquiry submitted successfully!", inquiryId: result.insertedId },
       { 
-        status: 201,
-        headers 
+        status: 201
       }
     );
   } catch (error) {

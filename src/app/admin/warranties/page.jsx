@@ -61,8 +61,9 @@ const Page = () => {
 
   const getStatusBadge = (status) => {
     const statusProps = {
-      active: { colorScheme: 'green' },
-      expired: { colorScheme: 'red' },
+      APPROVED: { colorScheme: 'green' },
+      REJECTED: { colorScheme: 'red' },
+      PENDING: { colorScheme: 'gray' },
       default: { colorScheme: 'gray' },
     };
 

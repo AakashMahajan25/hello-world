@@ -333,7 +333,7 @@ const ContactForm = () => {
                       <Input
                         type="email"
                         name="email"
-                        placeholder="Email Address (Optional)"
+                        placeholder="Email Address"
                         border="none"
                         focusBorderColor="transparent"
                         width="100%" // Ensure Input takes 100% width

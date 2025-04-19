@@ -19,6 +19,7 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   useToast,
+  Select,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import { fetchWithAuth } from '@/utils/fetchWithAuth';
@@ -29,14 +30,16 @@ const WarrantyDetails = () => {
   const toast = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const cancelRef = React.useRef();
   
   const warranty = JSON.parse(decodeURIComponent(params.id));
 
   const getStatusBadge = (status) => {
     const statusProps = {
-      active: { colorScheme: 'green' },
-      expired: { colorScheme: 'red' },
+      APPROVED: { colorScheme: 'green' },
+      REJECTED: { colorScheme: 'red' },
+      PENDING: { colorScheme: 'yellow' },
       default: { colorScheme: 'gray' },
     };
 
@@ -45,6 +48,46 @@ const WarrantyDetails = () => {
         {status}
       </Badge>
     );
+  };
+
+  const handleStatusChange = async (newStatus) => {
+    setIsUpdating(true);
+    try {
+      const response = await fetchWithAuth('/api/warranty/decision', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          warrantyId: warranty.warrantyId,
+          status: newStatus
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to update status');
+      }
+
+      toast({
+        title: 'Status updated successfully',
+        status: 'success',
+        duration: 3000,
+      });
+
+      // Update local warranty object
+      warranty.status = newStatus;
+
+    } catch (error) {
+      toast({
+        title: 'Error updating status',
+        description: error.message,
+        status: 'error',
+        duration: 3000,
+      });
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   const fetchWarrantyDetails = async (warrantyId) => {
@@ -140,8 +183,23 @@ const WarrantyDetails = () => {
             </Box>
             <Box>
               <Heading size="xs" color="gray.400">Status</Heading>
-              <Box pt={2}>
+              <Box pt={2} display="flex" alignItems="center" gap={4}>
                 {getStatusBadge(warranty.status)}
+                <Select
+                  maxW="200px"
+                  value={warranty.status}
+                  onChange={(e) => handleStatusChange(e.target.value)}
+                  isDisabled={isUpdating}
+                  bg="gray.700"
+                  color="gray.200"
+                  borderColor="gray.600"
+                  _hover={{ borderColor: "gray.500" }}
+                  _focus={{ borderColor: "blue.400", boxShadow: "none" }}
+                >
+                  <option style={{backgroundColor: "#2D3748"}} value="PENDING">PENDING</option>
+                  <option style={{backgroundColor: "#2D3748"}} value="APPROVED">APPROVED</option>
+                  <option style={{backgroundColor: "#2D3748"}} value="REJECTED">REJECTED</option>
+                </Select>
               </Box>
             </Box>
             <Box>
