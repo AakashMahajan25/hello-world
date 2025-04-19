@@ -34,12 +34,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-    try {
-        // Add token to response
-        const response = await request.json();
-        const headers = {
-            'Authorization': `Bearer ${VALID_TOKEN}`
-        };
+    try {       
         
         // Parse the request body
         const { name, email, phone, message, subject } = await request.json();
@@ -85,7 +80,7 @@ export async function POST(request) {
             { message: 'Contact form submitted successfully' },
             { 
                 status: 201,
-                headers
+                
             }
         );
 
