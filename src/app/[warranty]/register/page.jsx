@@ -34,6 +34,7 @@ export default function WarrantyRegistration() {
   const [warrantyDuration, setWarrantyDuration] = useState("");
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false)
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -70,6 +71,7 @@ export default function WarrantyRegistration() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsFormSubmitting(true)
 
     try {
       const formData = new FormData(e.target);
@@ -86,6 +88,8 @@ export default function WarrantyRegistration() {
         formData.set("rcImage", rcImageFile);
       }
 
+   
+
       const response = await fetch("/api/warranty/register", {
         method: "POST",
         body: formData,
@@ -99,6 +103,7 @@ export default function WarrantyRegistration() {
         e.target.reset(); // Optionally reset the form
         setImagePreview(null);
         setRcImagePreview(null); // Reset RC image preview
+        setIsFormSubmitting(false)
       } else {
         throw new Error(data.message);
       }
@@ -312,6 +317,7 @@ export default function WarrantyRegistration() {
               size="lg"
               width="full"
               mt={4}
+              isLoading={isFormSubmitting}
             >
               Register E-Warranty
             </Button>

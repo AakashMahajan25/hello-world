@@ -1,9 +1,52 @@
 import { NextResponse } from 'next/server';
 import { MongoClient } from 'mongodb';
 import { VALID_TOKEN } from '@/utils/authUtils';
+import { v2 as cloudinary } from 'cloudinary';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env.local');
+}
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: 'dk2hrfx7c',
+  api_key: '627415885592457',
+  api_secret: 'Qlqgq-kNXnyQVcAdZC4djKlDvEM'
+});
+
+// Function to upload an image to Cloudinary
+async function uploadToCloudinary(file) {
+  try {
+    // Convert form data file to buffer
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    
+    // Convert buffer to base64 string for Cloudinary
+    const base64String = buffer.toString('base64');
+    
+    // Upload to Cloudinary
+    const result = await new Promise((resolve, reject) => {
+      cloudinary.uploader.upload(
+        `data:${file.type};base64,${base64String}`,
+        {
+          folder: 'camio-ppf-warranties',
+          resource_type: 'auto',
+        },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+    });
+    
+    return {
+      url: result.secure_url,
+      publicId: result.public_id
+    };
+  } catch (error) {
+    console.error('Error uploading to Cloudinary:', error);
+    throw error;
+  }
 }
 
 export async function POST(request) {
@@ -11,7 +54,7 @@ export async function POST(request) {
   
   try {
     const uri = process.env.MONGODB_URI;
-    console.log('Attempting to connect to MongoDB...'); // Debug log
+    console.log('Attempting to connect to MongoDB...'); 
     
     // Add connection options
     client = await MongoClient.connect(uri, {
@@ -43,12 +86,25 @@ export async function POST(request) {
       status: 'pending'
     };
 
-    // Handle image separately if needed
+    // Handle image upload to Cloudinary
     const carImage = formData.get('carImage');
     if (carImage) {
-      warrantyData.carImage = carImage;
+      console.log('Uploading image to Cloudinary...');
+      const imageData = await uploadToCloudinary(carImage);
+      warrantyData.carImageUrl = imageData.url;
+      warrantyData.carImagePublicId = imageData.publicId;
+      console.log('Image uploaded successfully:', imageData.url);
     }
 
+    const rcImage = formData.get('rcImage')
+
+    if(rcImage){
+      console.log('Uploading image to Cloudinary...');
+      const imageData = await uploadToCloudinary(rcImage);
+      warrantyData.rcImage = imageData.url;
+      warrantyData.rcImagePublicId = imageData.publicId;
+      console.log('Image uploaded successfully:', imageData.url);
+    }
     // Log database operation
     console.log('Attempting to save warranty data...');
 
@@ -59,11 +115,6 @@ export async function POST(request) {
     const result = await warrantyCollection.insertOne(warrantyData);
     
     console.log('Warranty registered with ID:', result.insertedId);
-
-    // Add token to response
-    const headers = {
-      'Authorization': `Bearer ${VALID_TOKEN}`
-    };
 
     return NextResponse.json(
       { 
