@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -66,21 +66,25 @@ const Page = () => {
       accessorKey: "name",
       header: "Name",
       cell: ({ row }) => (
-        <div className="font-medium text-gray-200">{row.getValue("name")}</div>
+        <div className="font-medium text-gray-200 max-w-[150px] truncate">
+          {row.getValue("name")}
+        </div>
       ),
     },
     {
-      accessorKey: "email", 
+      accessorKey: "email",
       header: "Email",
       cell: ({ row }) => (
-        <div className="text-blue-300">{row.getValue("email")}</div>
+        <div className="text-gray-300 max-w-[150px] truncate">
+          {row.getValue("email")}
+        </div>
       ),
     },
     {
       accessorKey: "phoneNumber",
-      header: "Phone Number", 
+      header: "Phone Number",
       cell: ({ row }) => (
-        <div className="px-2 py-1 rounded-md bg-green-900 text-green-200 inline-block">
+        <div className="px-2 py-1 rounded-md bg-green-900 text-green-200 inline-block max-w-[130px] truncate">
           {row.getValue("phoneNumber")}
         </div>
       ),
@@ -89,7 +93,7 @@ const Page = () => {
       accessorKey: "subject",
       header: "Subject",
       cell: ({ row }) => (
-        <div className="max-w-[200px] truncate text-gray-300">
+        <div className="text-gray-300 max-w-[150px] truncate">
           {row.getValue("subject")}
         </div>
       ),
@@ -98,7 +102,7 @@ const Page = () => {
       accessorKey: "message",
       header: "Message",
       cell: ({ row }) => (
-        <div className="max-w-[300px] truncate text-gray-300">
+        <div className="text-gray-300 max-w-[150px] truncate">
           {row.getValue("message")}
         </div>
       ),
@@ -107,7 +111,7 @@ const Page = () => {
       accessorKey: "timestamp",
       header: "Date",
       cell: ({ row }) => (
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-gray-400 max-w-[150px] truncate">
           {new Date(row.getValue("timestamp")).toLocaleDateString()}
         </div>
       ),
@@ -163,14 +167,14 @@ const Page = () => {
   });
 
   if (loading) return (
-    <Box p={8}>
+    <Box p={8} bg="gray.900">
       <Heading mb={6} color="gray.100">Contact Form Submissions</Heading>
       <TableLoader />
     </Box>
   );
 
   return (
-    <Box p={8}>
+    <Box p={8} bg="gray.900">
       <Heading mb={6} color="gray.100">Contact Form Submissions</Heading>
 
       <div className="flex items-center py-4">
@@ -180,41 +184,44 @@ const Page = () => {
           onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm"
           color="gray.200"
+          bg="gray.800"
+          borderColor="gray.600"
+          _hover={{ borderColor: "gray.500" }}
+          _focus={{ borderColor: "blue.400", boxShadow: "none" }}
         />
         <Menu>
-          <MenuButton as={Button} variant="outline" className="ml-auto" color="gray.200">
+          <MenuButton as={Button} variant="outline" className="ml-auto" color="blue.400" borderColor="gray.600" _hover={{ bg: "blue.400", color: "white" }}>
             Columns
           </MenuButton>
           <MenuList bg="gray.800" borderColor="gray.600">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <MenuItem
-                    key={column.id}
-                    className="capitalize"
-                    onClick={() => column.toggleVisibility(!column.getIsVisible())}
-                    color="gray.200"
-                    _hover={{ bg: "gray.700" }}
-                    bg="gray.800"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={column.getIsVisible()}
-                      onChange={() => {}}
-                    />
-                    {column.id}
-                  </MenuItem>
-                );
-              })}
+              .map((column) => (
+                <MenuItem
+                  key={column.id}
+                  className="capitalize"
+                  onClick={() => column.toggleVisibility(!column.getIsVisible())}
+                  color="gray.200"
+                  _hover={{ bg: "gray.700" }}
+                  bg="gray.800"
+                >
+                  <input
+                    type="checkbox"
+                    checked={column.getIsVisible()}
+                    onChange={() => {}}
+                    className='mr-2'
+                  />
+                  {column.id}
+                </MenuItem>
+              ))}
           </MenuList>
         </Menu>
       </div>
 
       <div className="rounded-md border border-gray-700 overflow-x-scroll">
-        <ChakraTable>
-          <Thead>
+        <ChakraTable variant="simple">
+          <Thead bg="gray.800">
             {table.getHeaderGroups().map((headerGroup) => (
               <Tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
@@ -223,6 +230,8 @@ const Page = () => {
                     onClick={header.column.getToggleSortingHandler()}
                     className={header.column.getCanSort() ? "cursor-pointer select-none" : ""}
                     color="gray.200"
+                    borderColor="gray.600"
+                    _hover={{ bg: "gray.700" }}
                   >
                     {header.isPlaceholder
                       ? null
@@ -241,9 +250,9 @@ const Page = () => {
           </Thead>
           <Tbody>
             {table.getRowModel().rows.map((row) => (
-              <Tr key={row.id} _hover={{ bg: "gray.800" }}>
+              <Tr key={row.id} _hover={{ bg: "gray.700" }} bg="gray.800">
                 {row.getVisibleCells().map((cell) => (
-                  <Td key={cell.id}>
+                  <Td key={cell.id} borderColor="gray.600">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </Td>
                 ))}
@@ -263,9 +272,11 @@ const Page = () => {
             }}
             color="gray.200"
             bg="gray.800"
+            borderColor="gray.600"
+            _hover={{ borderColor: "gray.500" }}
           >
             {[10, 20, 30, 40, 50].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
+              <option key={pageSize} value={pageSize} style={{backgroundColor: '#1A202C', color: '#E2E8F0'}}>
                 {pageSize}
               </option>
             ))}
@@ -277,6 +288,8 @@ const Page = () => {
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
           color="gray.200"
+          borderColor="gray.600"
+          _hover={{ bg: "gray.700" }}
         >
           Previous
         </Button>
@@ -286,6 +299,8 @@ const Page = () => {
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
           color="gray.200"
+          borderColor="gray.600"
+          _hover={{ bg: "gray.700" }}
         >
           Next
         </Button>

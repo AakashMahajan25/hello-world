@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -43,16 +43,17 @@ const Page = () => {
   useEffect(() => {
     const fetchInquiries = async (page = 1, limit = 10) => {
       try {
+        setLoading(true);
         const response = await fetchWithAuth(`/api/inquiries?page=${page}&limit=${limit}`);
         if (!response.ok) throw new Error('Failed to fetch inquiries');
         const data = await response.json();
         // Sort data by createdAt in descending order
         const sortedData = data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setInquiries(sortedData);
-        setLoading(false);
       } catch (error) {
         console.error('Error:', error);
-        setError("Failed to fetch data.");
+        setError("Failed to fetch data");
+      } finally {
         setLoading(false);
       }
     };
@@ -65,14 +66,16 @@ const Page = () => {
       accessorKey: "name",
       header: "Name",
       cell: ({ row }) => (
-        <div className="font-medium text-gray-200">{row.getValue("name")}</div>
+        <div className="font-medium text-gray-200 max-w-[150px] truncate">
+          {row.getValue("name")}
+        </div>
       ),
     },
     {
       accessorKey: "phone",
       header: "Phone",
       cell: ({ row }) => (
-        <div className="px-2 py-1 rounded-md bg-green-900 text-green-200 inline-block">
+        <div className="px-2 py-1 rounded-md bg-green-900 text-green-200 inline-block max-w-[130px] truncate">
           {row.getValue("phone")}
         </div>
       ),
@@ -81,35 +84,43 @@ const Page = () => {
       accessorKey: "email",
       header: "Email",
       cell: ({ row }) => (
-        <div className="text-blue-300">{row.getValue("email")}</div>
+        <div className="text-gray-300 max-w-[150px] truncate">
+          {row.getValue("email")}
+        </div>
       ),
     },
     {
       accessorKey: "purpose",
       header: "Purpose",
       cell: ({ row }) => (
-        <div className="text-gray-300">{row.getValue("purpose")}</div>
+        <div className="text-gray-300 max-w-[150px] truncate">
+          {row.getValue("purpose")}
+        </div>
       ),
     },
     {
       accessorKey: "businessName",
       header: "Business Name",
       cell: ({ row }) => (
-        <div className="text-gray-300">{row.getValue("businessName")}</div>
+        <div className="text-gray-300 max-w-[150px] truncate">
+          {row.getValue("businessName")}
+        </div>
       ),
     },
     {
       accessorKey: "location",
       header: "Location",
       cell: ({ row }) => (
-        <div className="text-gray-300">{row.getValue("location")}</div>
+        <div className="text-gray-300 max-w-[150px] truncate">
+          {row.getValue("location")}
+        </div>
       ),
     },
     {
       accessorKey: "inquiryMessage",
       header: "Message",
       cell: ({ row }) => (
-        <div className="max-w-[300px] truncate text-gray-300">
+        <div className="text-gray-300 max-w-[150px] truncate">
           {row.getValue("inquiryMessage")}
         </div>
       ),
@@ -118,7 +129,7 @@ const Page = () => {
       accessorKey: "createdAt",
       header: "Date",
       cell: ({ row }) => (
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-gray-400 max-w-[150px] truncate">
           {new Date(row.getValue("createdAt")).toLocaleDateString()}
         </div>
       ),
@@ -168,20 +179,20 @@ const Page = () => {
   });
 
   if (loading) return (
-    <Box p={8}>
+    <Box p={8} bg="gray.900">
       <Heading mb={6} color="gray.100">Inquiries</Heading>
       <TableLoader />
     </Box>
   );
 
   if (error) return (
-    <Box p={8}>
+    <Box p={8} bg="gray.900">
       <Heading color="red.500">{error}</Heading>
     </Box>
   );
 
   return (
-    <Box p={8}>
+    <Box p={8} bg="gray.900">
       <Heading mb={6} color="gray.100">Inquiries</Heading>
 
       <div className="flex items-center py-4">
@@ -191,9 +202,13 @@ const Page = () => {
           onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm"
           color="gray.200"
+          bg="gray.800"
+          borderColor="gray.600"
+          _hover={{ borderColor: "gray.500" }}
+          _focus={{ borderColor: "blue.400", boxShadow: "none" }}
         />
         <Menu>
-          <MenuButton as={Button} variant="outline" className="ml-auto" color="gray.200">
+          <MenuButton as={Button} variant="outline" className="ml-auto" color="blue.500" borderColor="gray.600" _hover={{ bg: "blue.500", color: "white" }}>
             Columns
           </MenuButton>
           <MenuList bg="gray.800" borderColor="gray.600">
@@ -213,6 +228,7 @@ const Page = () => {
                     type="checkbox"
                     checked={column.getIsVisible()}
                     onChange={() => {}}
+                    className='mr-2'
                   />
                   {column.id}
                 </MenuItem>
@@ -222,8 +238,8 @@ const Page = () => {
       </div>
 
       <div className="rounded-md border border-gray-700 overflow-x-scroll">
-        <ChakraTable>
-          <Thead>
+        <ChakraTable variant="simple">
+          <Thead bg="gray.800">
             {table.getHeaderGroups().map((headerGroup) => (
               <Tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
@@ -232,6 +248,8 @@ const Page = () => {
                     onClick={header.column.getToggleSortingHandler()}
                     className={header.column.getCanSort() ? "cursor-pointer select-none" : ""}
                     color="gray.200"
+                    borderColor="gray.600"
+                    _hover={{ bg: "gray.700" }}
                   >
                     {header.isPlaceholder
                       ? null
@@ -250,9 +268,9 @@ const Page = () => {
           </Thead>
           <Tbody>
             {table.getRowModel().rows.map((row) => (
-              <Tr key={row.id} _hover={{ bg: "gray.800" }}>
+              <Tr key={row.id} _hover={{ bg: "gray.700" }} bg="gray.800">
                 {row.getVisibleCells().map((cell) => (
-                  <Td key={cell.id}>
+                  <Td key={cell.id} borderColor="gray.600">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </Td>
                 ))}
@@ -272,9 +290,11 @@ const Page = () => {
             }}
             color="gray.200"
             bg="gray.800"
+            borderColor="gray.600"
+            _hover={{ borderColor: "gray.500" }}
           >
             {[10, 20, 30, 40, 50].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
+              <option key={pageSize} value={pageSize} style={{backgroundColor: '#1A202C', color: '#E2E8F0'}}>
                 {pageSize}
               </option>
             ))}
@@ -286,6 +306,8 @@ const Page = () => {
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
           color="gray.200"
+          borderColor="gray.600"
+          _hover={{ bg: "gray.700" }}
         >
           Previous
         </Button>
@@ -295,6 +317,8 @@ const Page = () => {
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
           color="gray.200"
+          borderColor="gray.600"
+          _hover={{ bg: "gray.700" }}
         >
           Next
         </Button>
