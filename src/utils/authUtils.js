@@ -13,4 +13,3 @@ export function verifyToken(request) {
   
   return true;
 } 
-
