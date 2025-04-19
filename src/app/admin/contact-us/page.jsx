@@ -32,7 +32,7 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
 const Page = () => {
   const router = useRouter();
   const [contacts, setContacts] = useState([]);
-  const [sorting, setSorting] = useState([]);
+  const [sorting, setSorting] = useState([{ id: 'timestamp', desc: true }]); // Changed to sort by timestamp descending
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState('');
@@ -47,7 +47,9 @@ const Page = () => {
           throw new Error('Failed to fetch contacts');
         }
         const data = await response.json();
-        setContacts(data);
+        // Sort data by timestamp in descending order
+        const sortedData = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setContacts(sortedData);
       } catch (error) {
         console.error('Error:', error);
         throw error;
@@ -103,10 +105,10 @@ const Page = () => {
     },
     {
       accessorKey: "timestamp",
-      header: "Timestamp",
+      header: "Date",
       cell: ({ row }) => (
         <div className="text-sm text-gray-400">
-          {new Date(row.getValue("timestamp")).toLocaleString()}
+          {new Date(row.getValue("timestamp")).toLocaleDateString()}
         </div>
       ),
     },

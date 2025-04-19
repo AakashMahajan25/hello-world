@@ -33,7 +33,7 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
 const Page = () => {
   const router = useRouter();
   const [inquiries, setInquiries] = useState([]);
-  const [sorting, setSorting] = useState([]);
+  const [sorting, setSorting] = useState([{ id: 'createdAt', desc: true }]); // Changed to sort by createdAt descending
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState('');
@@ -46,7 +46,9 @@ const Page = () => {
         const response = await fetchWithAuth(`/api/inquiries?page=${page}&limit=${limit}`);
         if (!response.ok) throw new Error('Failed to fetch inquiries');
         const data = await response.json();
-        setInquiries(data.data);
+        // Sort data by createdAt in descending order
+        const sortedData = data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setInquiries(sortedData);
         setLoading(false);
       } catch (error) {
         console.error('Error:', error);
@@ -117,7 +119,7 @@ const Page = () => {
       header: "Date",
       cell: ({ row }) => (
         <div className="text-sm text-gray-400">
-          {new Date(row.getValue("createdAt")).toLocaleString()}
+          {new Date(row.getValue("createdAt")).toLocaleDateString()}
         </div>
       ),
     },

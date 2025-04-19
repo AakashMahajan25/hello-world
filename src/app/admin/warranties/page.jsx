@@ -33,7 +33,7 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
 const Page = () => {
   const router = useRouter();
   const [warranties, setWarranties] = useState([]);
-  const [sorting, setSorting] = useState([]);
+  const [sorting, setSorting] = useState([{ id: 'createdAt', desc: true }]); // Set default sorting
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState('');
