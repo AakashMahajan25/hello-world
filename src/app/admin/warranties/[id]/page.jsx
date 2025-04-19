@@ -75,7 +75,6 @@ const WarrantyDetails = () => {
         duration: 3000,
       });
 
-      // Update local warranty object
       warranty.status = newStatus;
 
     } catch (error) {
@@ -87,18 +86,6 @@ const WarrantyDetails = () => {
       });
     } finally {
       setIsUpdating(false);
-    }
-  };
-
-  const fetchWarrantyDetails = async (warrantyId) => {
-    try {
-      const response = await fetchWithAuth(`/api/warranty/get?warrantyId=${warrantyId}`);
-      if (!response.ok) throw new Error('Failed to fetch warranty details');
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
     }
   };
 
@@ -178,9 +165,35 @@ const WarrantyDetails = () => {
               <Text pt={2} color="gray.200">{warranty.carNumber}</Text>
             </Box>
             <Box>
+              <Heading size="xs" color="gray.400">Chassis Number</Heading>
+              <Text pt={2} color="gray.200">{warranty.chassisNumber}</Text>
+            </Box>
+            <Box>
+              <Heading size="xs" color="gray.400">Camio Roll Code</Heading>
+              <Text pt={2} color="gray.200">{warranty.camioRollCode}</Text>
+            </Box>
+            <Box>
+              <Heading size="xs" color="gray.400">PPF Category</Heading>
+              <Text pt={2} color="gray.200">{warranty.ppfCategory}</Text>
+            </Box>
+            <Box>
               <Heading size="xs" color="gray.400">Detailer Studio</Heading>
               <Text pt={2} color="gray.200">{warranty.detailerStudioName}</Text>
             </Box>
+            <Box>
+              <Heading size="xs" color="gray.400">Detailer Mobile</Heading>
+              <Text pt={2} color="gray.200">{warranty.detailerMobile}</Text>
+            </Box>
+            <Box>
+              <Heading size="xs" color="gray.400">Location</Heading>
+              <Text pt={2} color="gray.200">{warranty.location}</Text>
+            </Box>
+            {warranty.message && (
+              <Box>
+                <Heading size="xs" color="gray.400">Message</Heading>
+                <Text pt={2} color="gray.200">{warranty.message}</Text>
+              </Box>
+            )}
             <Box>
               <Heading size="xs" color="gray.400">Status</Heading>
               <Box pt={2} display="flex" alignItems="center" gap={4}>
@@ -208,20 +221,6 @@ const WarrantyDetails = () => {
                 {new Date(warranty.createdAt).toLocaleString()}
               </Text>
             </Box>
-            {warranty.expiryDate && (
-              <Box>
-                <Heading size="xs" color="gray.400">Expiry Date</Heading>
-                <Text pt={2} color="gray.400">
-                  {new Date(warranty.expiryDate).toLocaleString()}
-                </Text>
-              </Box>
-            )}
-            {warranty.description && (
-              <Box>
-                <Heading size="xs" color="gray.400">Description</Heading>
-                <Text pt={2} color="gray.300">{warranty.description}</Text>
-              </Box>
-            )}
             <Box>
               <Heading size="xs" color="gray.400">Car Image</Heading>
               {warranty.carImageUrl ? (
