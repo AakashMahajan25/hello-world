@@ -10,6 +10,7 @@ export async function GET(request) {
   try {
     client = await MongoClient.connect(process.env.MONGODB_URI);
     const db = client.db("camio-ppf");
+    
     const warrantyCollection = db.collection("warranties");
 
     const warranty = await warrantyCollection.findOne({ warrantyId });
