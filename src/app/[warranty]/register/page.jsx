@@ -487,7 +487,7 @@ export default function WarrantyRegistration() {
 
         <Text fontSize="14px" mt={4}>
           <strong>Limitation of Liability: </strong>
-          CAMIO PPF's liability is limited to providing the product. The company
+          CAMIO PPF&apos;s liability is limited to providing the product. The company
           is not responsible for:
           <ul  style={{ listStyleType: "circle", paddingLeft: "20px" }} className="pt-2">
             <li>Labour costs associated with removal or reinstallation.</li>
