@@ -88,8 +88,6 @@ export default function WarrantyRegistration() {
         formData.set("rcImage", rcImageFile);
       }
 
-   
-
       const response = await fetch("/api/warranty/register", {
         method: "POST",
         body: formData,
@@ -105,7 +103,27 @@ export default function WarrantyRegistration() {
         setRcImagePreview(null); // Reset RC image preview
         setIsFormSubmitting(false)
       } else {
-        throw new Error(data.message);
+        // Handle specific error cases
+        if (data.error === 'DUPLICATE_ROLL_CODE') {
+          toast({
+            title: "Registration Failed",
+            description: "This roll code has already been registered. Please check the code and try again.",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
+        } else if (data.error === 'RECENT_REGISTRATION') {
+          toast({
+            title: "Registration Failed",
+            description: "You have already registered a warranty in the last 48 hours. Please wait before submitting another registration.",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
+        } else {
+          throw new Error(data.message);
+        }
+        setIsFormSubmitting(false)
       }
     } catch (error) {
       toast({
@@ -116,6 +134,7 @@ export default function WarrantyRegistration() {
         duration: 5000,
         isClosable: true,
       });
+      setIsFormSubmitting(false)
     }
   };
 

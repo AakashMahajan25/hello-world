@@ -111,6 +111,40 @@ export async function POST(request) {
     const db = client.db("camio-ppf");
     const warrantyCollection = db.collection('warranties');
 
+    // Check for duplicate roll code
+    const existingRollCode = await warrantyCollection.findOne({
+      camioRollCode: warrantyData.camioRollCode
+    });
+
+    if (existingRollCode) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'This roll code has already been registered',
+          error: 'DUPLICATE_ROLL_CODE'
+        },
+        { status: 400 }
+      );
+    }
+
+    // Check for recent customer registration (within 48 hours)
+    const fortyEightHoursAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
+    const recentCustomerRegistration = await warrantyCollection.findOne({
+      phoneNumber: warrantyData.phoneNumber,
+      createdAt: { $gte: fortyEightHoursAgo }
+    });
+
+    if (recentCustomerRegistration) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'You have already registered a warranty in the last 48 hours',
+          error: 'RECENT_REGISTRATION'
+        },
+        { status: 400 }
+      );
+    }
+
     // Insert into database
     const result = await warrantyCollection.insertOne(warrantyData);
     
