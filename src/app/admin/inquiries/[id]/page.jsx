@@ -116,7 +116,7 @@ const InquiryDetail = () => {
               <Text pt={2} color="gray.300">{inquiry.inquiryMessage}</Text>
             </Box>
             <Box>
-              <Heading size="xs" color="gray.400">Date</Heading>
+              <Heading size="xs" color="gray.400">Created Date</Heading>
               <Text pt={2} color="gray.400">
                 {new Date(inquiry.createdAt).toLocaleString()}
               </Text>
