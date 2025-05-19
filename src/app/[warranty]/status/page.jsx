@@ -115,9 +115,13 @@ export default function WarrantyStatus() {
                 Warranty Details
                 <Badge
                   ml={2}
-                  colorScheme={warrantyDetails.isExpired ? 'red' : 'green'}
+                  colorScheme={
+                    warrantyDetails.status === 'APPROVED' ? 'green' :
+                    warrantyDetails.status === 'REJECTED' ? 'red' :
+                    warrantyDetails.status === 'PENDING' ? 'yellow' : 'gray'
+                  }
                 >
-                  {warrantyDetails.isExpired ? 'Expired' : 'Active'}
+                  {warrantyDetails.status}
                 </Badge>
               </Heading>
             </CardHeader>
@@ -129,13 +133,21 @@ export default function WarrantyStatus() {
                   <Progress
                     mt={2}
                     value={Math.min((warrantyDetails.yearsLeft / 5) * 100, 100)}
-                    colorScheme={warrantyDetails.isExpired ? 'red' : 'green'}
+                    colorScheme={
+                      warrantyDetails.status === 'APPROVED' ? 'green' :
+                      warrantyDetails.status === 'REJECTED' ? 'red' :
+                      warrantyDetails.status === 'PENDING' ? 'yellow' : 'gray'
+                    }
                     borderRadius="full"
                   />
                   <Text mt={2} fontWeight="bold">
-                    {warrantyDetails.isExpired 
-                      ? 'Warranty has expired'
-                      : `${warrantyDetails.yearsLeft} years remaining`
+                    {warrantyDetails.status === 'REJECTED' 
+                      ? 'Warranty has been rejected'
+                      : warrantyDetails.status === 'PENDING'
+                      ? 'Approval pending from Admin'
+                      : warrantyDetails.isExpired 
+                        ? 'Warranty has expired'
+                        : `${warrantyDetails.yearsLeft} years remaining`
                     }
                   </Text>
                 </Box>
