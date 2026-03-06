@@ -371,6 +371,9 @@ const Footer = () => {
                   Terms and Conditions
                 </Link>
               </Text>
+              <Text fontSize={{ base: "10px", lg: "14px" }} color="#E0E0E0" mt={1}>
+                Gaurav Jain | Rudra Enterprises | GST: 07BEXPJ9530E
+              </Text>
             </Box>
 
             <Image src={logo} width={150} height="auto" alt="logo" />
