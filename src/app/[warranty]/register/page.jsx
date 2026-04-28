@@ -64,8 +64,6 @@ export default function WarrantyRegistration() {
     console.log(selectedCategory);
     if (selectedCategory.includes("tpu")) {
       setWarrantyDuration("5 years");
-    } else if (selectedCategory.includes("tph")) {
-      setWarrantyDuration("3 years");
     }
   };
 
@@ -224,18 +222,6 @@ export default function WarrantyRegistration() {
                   </option>
                   <option value="camio-tpu-black-matte">
                     CAMIO TPU Black Matte
-                  </option>
-                  <option value="camio-tph-clear-gloss">
-                    Camio TPH Clear Gloss
-                  </option>
-                  <option value="camio-tph-clear-matte">
-                    Camio TPH Clear Matte
-                  </option>
-                  <option value="camio-tph-color-gloss">
-                    Camio TPH Color Gloss
-                  </option>
-                  <option value="camio-tph-black-gloss">
-                    Camio TPH Black Gloss
                   </option>
                 </Select>
                 <Flex align="center" gap={2}>
