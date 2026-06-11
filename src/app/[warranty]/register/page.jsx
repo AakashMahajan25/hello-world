@@ -62,7 +62,9 @@ export default function WarrantyRegistration() {
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     console.log(selectedCategory);
-    if (selectedCategory.includes("tpu")) {
+    if (selectedCategory === "camio-tpu-gloss-8yr") {
+      setWarrantyDuration("8 years");
+    } else if (selectedCategory.includes("tpu")) {
       setWarrantyDuration("5 years");
     }
   };
@@ -222,6 +224,9 @@ export default function WarrantyRegistration() {
                   </option>
                   <option value="camio-tpu-black-matte">
                     CAMIO TPU Black Matte
+                  </option>
+                  <option value="camio-tpu-gloss-8yr">
+                    CAMIO TPU Gloss 8 Years
                   </option>
                 </Select>
                 <Flex align="center" gap={2}>
