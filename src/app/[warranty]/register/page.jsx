@@ -228,6 +228,9 @@ export default function WarrantyRegistration() {
                   <option value="camio-tpu-gloss-8yr">
                     CAMIO TPU Gloss 8 Years
                   </option>
+                  <option value="camio-tpu-color-ppf">
+                    CAMIO TPU Color PPF
+                  </option>
                 </Select>
                 <Flex align="center" gap={2}>
                   <Text fontSize="sm" fontWeight="medium" color="gray.600">
