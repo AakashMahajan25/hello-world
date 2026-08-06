@@ -26,6 +26,7 @@ import {
   Flex,
   Collapse,
 } from "@chakra-ui/react";
+import { downloadWarrantyCard } from "@/utils/warrantyCard";
 
 export default function WarrantyRegistration() {
   const [imagePreview, setImagePreview] = useState(null);
@@ -35,6 +36,29 @@ export default function WarrantyRegistration() {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isFormSubmitting, setIsFormSubmitting] = useState(false)
+  const [warrantyCard, setWarrantyCard] = useState(null);
+  const [isDownloadingCard, setIsDownloadingCard] = useState(false);
+
+  const handleDownloadCard = async (card) => {
+    const cardData = card || warrantyCard;
+    if (!cardData) return;
+
+    setIsDownloadingCard(true);
+    try {
+      await downloadWarrantyCard(cardData);
+    } catch (error) {
+      toast({
+        title: "Download Failed",
+        description:
+          "Could not download the warranty card. Please use the Download Again button.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setIsDownloadingCard(false);
+    }
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -96,12 +120,29 @@ export default function WarrantyRegistration() {
       const data = await response.json();
 
       if (data.success) {
+        // Snapshot the submitted values before the form is reset
+        const card = {
+          warrantyId: data.warrantyId,
+          customerName: formData.get("customerName"),
+          phoneNumber: formData.get("phoneNumber"),
+          carNumber: formData.get("carNumber"),
+          chassisNumber: formData.get("chassisNumber"),
+          camioRollCode: formData.get("camioRollCode"),
+          ppfCategory: formData.get("ppfCategory"),
+          detailerStudioName: formData.get("detailerStudioName"),
+          location: formData.get("location"),
+          createdAt: new Date(),
+          status: "PENDING",
+        };
+
         setWarrantyId(data.warrantyId);
+        setWarrantyCard(card);
         onOpen(); // Open modal with warranty ID
         e.target.reset(); // Optionally reset the form
         setImagePreview(null);
         setRcImagePreview(null); // Reset RC image preview
         setIsFormSubmitting(false)
+        handleDownloadCard(card); // Auto-download the warranty card
       } else {
         // Handle specific error cases
         if (data.error === 'DUPLICATE_ROLL_CODE') {
@@ -532,8 +573,20 @@ export default function WarrantyRegistration() {
               Please save this Warranty ID in a safe place. You will need it to
               check your warranty status.
             </Text>
+            <Text mt={4} fontSize="sm" color="gray.600">
+              Your warranty card download has started automatically. If it did
+              not, use the Download Again button below.
+            </Text>
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter gap={3}>
+            <Button
+              colorScheme="yellow"
+              bg="#FFBB4E"
+              onClick={() => handleDownloadCard()}
+              isLoading={isDownloadingCard}
+            >
+              Download Again
+            </Button>
             <Button colorScheme="blue" onClick={onClose}>
               Close
             </Button>
