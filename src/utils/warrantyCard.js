@@ -7,10 +7,12 @@ export const PPF_CATEGORY_LABELS = {
   "camio-tpu-black-matte": "CAMIO TPU Black Matte",
   "camio-tpu-gloss-8yr": "CAMIO TPU Gloss 8 Years",
   "camio-tpu-color-ppf": "CAMIO TPU Color PPF",
+  "body-guard-tpu-3yr": "Body Guard TPU 3 Years",
 };
 
 export const getWarrantyYears = (ppfCategory = "") => {
   if (ppfCategory === "camio-tpu-gloss-8yr") return 8;
+  if (ppfCategory === "body-guard-tpu-3yr") return 3;
   if (ppfCategory.includes("tpu")) return 5;
   return 0;
 };

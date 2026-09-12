@@ -88,6 +88,8 @@ export default function WarrantyRegistration() {
     console.log(selectedCategory);
     if (selectedCategory === "camio-tpu-gloss-8yr") {
       setWarrantyDuration("8 years");
+    } else if (selectedCategory === "body-guard-tpu-3yr") {
+      setWarrantyDuration("3 years");
     } else if (selectedCategory.includes("tpu")) {
       setWarrantyDuration("5 years");
     }
@@ -271,6 +273,9 @@ export default function WarrantyRegistration() {
                   </option>
                   <option value="camio-tpu-color-ppf">
                     CAMIO TPU Color PPF
+                  </option>
+                  <option value="body-guard-tpu-3yr">
+                    Body Guard TPU 3 Years
                   </option>
                 </Select>
                 <Flex align="center" gap={2}>
